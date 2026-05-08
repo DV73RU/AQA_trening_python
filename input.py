@@ -56,9 +56,60 @@
 # rost = float(input("Рост в метрах: "))
 # print(f"BMI: {(ves / rost) ** 2 }")
 #16
-
-name = str(input("Введите имя: "))
-age = int(input("Введите возраст: "))
-city = str(input("Введите город: "))
-print(f"Меня зовут {name}, мне {age}, я живу в {city}.")
+# name = str(input("Введите имя: "))
+# age = int(input("Введите возраст: "))
+# city = str(input("Введите город: "))
+# print(f"Меня зовут {name}, мне {age}, я живу в {city}.")
+#17
+# name = str(input("Название товара: "))
+# prise = float(input("Цена товара: "))
+# n = int(input("Количество товара: "))
+# print(f"Товар: {name}",f'Цена: {prise} евро', f'Количество: {n}', f'Итого: {prise * n} евро', sep="\n")
+# #18
+# car = str(input("Марка машины: "))
+# ear = int(input("Год выпуска: "))
+# print(f"Машина: {car}, год выпуска: {ear}")
+#19
+# name_curs = str(input("Название курса: "))
+# n = int(input("Количество уроков: "))
+# print(f"Курс {name_curs} содержит {n} уроков")
+#20
+# name_user = str(input("Введите имя: "))
+# roles = str(input("Введите роль: "))
+# print("=== USER CARD ===")
+# print(f"Name: {name_user}", f"Role: {roles}", sep="\n")
+# print("=================")
+#21
+# n = str(input("Сколько часов ты работал?: "))
+# ch = int(input("Какая ставка в час?: "))
+# res = n * ch
+# print(f"Ты заработал {res} евро")
+#22 Пропущено, было такое
+#23
+# name = str(input("Ваше имя: "))
+# age = int(input("Возраст: "))
+# city = input("Город: ")
+# proff = input("Профессия: ")
+# print("Анкета", f"Имя: {name}", f"Возраст {age}", f"Город: {city}", f"Профессия: {proff}", sep="\n")
+#24
+# minuts = float(input("Введите минуты: "))
+# print(f"Это {minuts / 60 } часов")
+#25
+# n = int(input("Введите первое число: "))
+# i = int(input("Введите второе число: "))
+# print(f"{n} + {i} = {n+i}")
+# print(f"{n} - {i} = {n-i}")
+# print(f"{n} * {i} = {n * i}")
+# print(f"{n} / {i} = {n / i}")
+#26
+# name = input("Введите имя: ")
+# age = int(input("Введите возраст: "))
+# print(f"{name}, через 10 лет тебе будет {age + 10}")
+#27
+# c = float(input("Введите температуру в Цельсиях: "))
+# print(f"Температура в Фаренгейтах {c * 9 / 5 + 32}")
+name1 = input("Введите имя друга 1:")
+name2 = input("Введите имя друга 2:")
+name3 = input("Введите имя друга 3:")
+print(f"Мои друзья: {name1},{name2},{name3}")
 
