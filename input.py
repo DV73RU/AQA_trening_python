@@ -39,7 +39,26 @@
 # prise = float(input("Цена товара с копейками: "))
 # print(f"Новая цена: {prise * 2}")
 #12
-h = float(input("Ширина комнаты: "))
-l = float(input("Длинна комнаты: "))
-print(f"Площадь комнаты: {h * l}")
+# h = float(input("Ширина комнаты: "))
+# l = float(input("Длинна комнаты: "))
+# print(f"Площадь комнаты: {h * l}")
+
+#13
+# h = float(input("Расстояние в километрах: "))
+# d = float(input("Время в часах: "))
+# print(f"Скорость: {h * d} км/ч")
+#14
+# prise = float(input("Цена в евро: "))
+# cur = float(input("Курс евро к доллару: "))
+# print(f"Цена в долларах: {prise * cur}")
+#15
+# ves = float(input("Вес: "))
+# rost = float(input("Рост в метрах: "))
+# print(f"BMI: {(ves / rost) ** 2 }")
+#16
+
+name = str(input("Введите имя: "))
+age = int(input("Введите возраст: "))
+city = str(input("Введите город: "))
+print(f"Меня зовут {name}, мне {age}, я живу в {city}.")
 
