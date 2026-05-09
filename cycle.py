@@ -47,3 +47,14 @@
 # l = int(input("Высота: "))
 # for i in range(h):
 #     print("*" * l)
+
+#11
+res = 0
+number = 0
+for i in range(5):
+    n = int(input("Введите число: "))
+    if n % 2 == 0:
+        res = res + n
+        number = number + 1
+
+print(f"Результат сложения {number} чисел: {res}")
