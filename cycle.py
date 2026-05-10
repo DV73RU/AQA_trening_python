@@ -26,6 +26,7 @@
 #     res = intr * i
 #     print(f"{intr} * {i} = {res}")
 #8
+from cloudinit.sources.DataSourceAzure import determine_device_driver_for_mac
 
 # total = 0
 # for i in range(5):
@@ -86,4 +87,4 @@ for i in range(1,11):
 
 #15
 
-n
+determine_device_driver_for_mac()
