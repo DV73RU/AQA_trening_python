@@ -48,13 +48,38 @@
 # for i in range(h):
 #     print("*" * l)
 
-#11
-res = 0
-number = 0
-for i in range(5):
-    n = int(input("Введите число: "))
-    if n % 2 == 0:
-        res = res + n
-        number = number + 1
+# #11
+# res = 0
+# number = 0
+# for i in range(5):
+#     n = int(input("Введите число: "))
+#     if n % 2 == 0:
+#         res = res + n
+#         number = number + 1
+#
+# print(f"Результат сложения {number} чисел: {res}")
 
-print(f"Результат сложения {number} чисел: {res}")
+#12
+# maximum = 0
+# for i in range(5):
+#     n = int(input("Введите число: "))
+#     if n > maximum:
+#         maximum = n
+# print(f"Макимальное число: {maximum}")
+
+#13
+# maximum = 10
+# count = 0
+# for i in range(7):
+#     n = int(input("Введите число: "))
+#     if n > maximum:
+#         count = count + 1
+# print(f"Количество чисед больше 10: {count}")
+
+#14
+count = 0
+n = int(input("Введите число: "))
+for i in range(1,11):
+    for j in range(1, 11):
+        print(f"{i} * {j} = {i * j}")
+    print()
