@@ -87,8 +87,133 @@
 
 #15
 
-n = int(input("Введите Ширину: "))
-i = int(input("Введите высоту: "))
-for i in range(1, i + 1): #Высота (количество итераций в цикле)
-    print("*" * n) #Ширина (количество элементов)
+# n = int(input("Введите Ширину: "))
+# i = int(input("Введите высоту: "))
+# for i in range(1, i + 1): #Высота (количество итераций в цикле)
+#     print("*" * n) #Ширина (количество элементов)
+
+# n = int(input("Введите Ширину: "))
+# i = int(input("Введите высоту: "))
+# for i in range(1, i + 1): #Высота (количество итераций в цикле)
+#     print("*","" * n , "*") #Ширина (количество элементов)
+
+#15
+# n = int(input("Введите Ширину: "))
+# h = int(input("Введите высоту: "))
+# for i in range(1, h + 1): #Высота (количество итераций в цикле)
+#     if i == 1 or i == h:
+#         print("*" * n) #Ширина и вид первой и последней строки
+#     else:
+#         print("*" + " " * (n - 2) + "*") #Ширина и вид сроки не первой и не последней
+
+#16
+# minimum = int(input("Введите число: "))
+# for i in range(4):
+#     n = int(input("Введите число: "))
+#     if n < minimum:
+#         minimum = n
+# print(f"Минимальное число: {minimum}")
+
+#17
+# result = 0
+# n = int(input("Введите число: "))
+# for i in range(1, n+1):
+#     result = result + i
+# print(result)
+
+#18
+# result = 1
+# n = int(input("Введите число: "))
+# for i in range(1, n+1):
+#     result = result * i
+#     print(i)
+# print(result)
+
+#21
+# count_positive = 0
+# count_negative = 0
+# for i in range(7):
+#     n = int(input("Введите число: "))
+#     if n < 0:
+#         count_negative = count_negative + 1
+#     if n > 0:
+#         count_positive = count_positive + 1
+# print(f"Отрицательных чисел: {count_negative}")
+# print(f"Положительных чисел: {count_positive}")
+
+#22
+# n = int(input("Введите высоту: "))
+# for i in range(1, n):
+#     print("*" * i)
+
+#23
+# summ = 0
+# counts = 0
+#
+# for i in range(5):
+#     n = int(input("Ведите число: "))
+#     summ = summ + n
+#     counts = counts + 1
+# print(f"Среднее: {summ/counts}")
+
+#24
+# counts = 0
+# for i in range(8):
+#     n = int(input("Введите число: "))
+#     if 20 >= n >= 10:
+#         counts = counts + 1
+# print(f"Чисел от 10 до 20: {counts}")
+
+# #25
+# n = int(input("Введите высоту: "))
+# for i in range(1, n+1):
+#     print("*" * i)
+#
+# #25
+# n = int(input("Введите высоту: "))
+# for i in range(n):
+#     print("*" * n)
+
+
+#26
+#
+# summ = 0
+# for i in range(10):
+#     n = int(input("Введите число: "))
+#     if n % 3 == 0:
+#         summ = summ + n
+# print(f"Сумма чисел , делящихся на 3: {summ}")
+#27
+
+# maximum = None
+#
+# for i in range(7):
+#     n = int(input("Введите число: "))
+#
+#     if n % 2 == 0:
+#         if maximum is None:
+#             maximum = n
+#         elif n > maximum:
+#             maximum = n
+#
+# if maximum is None:
+#     print("Чётных чисел нет")
+# else:
+#     print(f"Максимальное чётное число: {maximum}")
+
+#28
+pas = "python123"
+attempt = 3
+for i in range(attempt):
+    n = input("Введите пароль: ")
+    if n == pas:
+        print("ОК")
+
+
+if attempt == 3 :
+    print("Попытки закончились")
+
+
+
+
 
