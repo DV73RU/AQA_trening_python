@@ -26,7 +26,7 @@
 #     res = intr * i
 #     print(f"{intr} * {i} = {res}")
 #8
-from cloudinit.sources.DataSourceAzure import determine_device_driver_for_mac
+
 
 # total = 0
 # for i in range(5):
@@ -78,13 +78,17 @@ from cloudinit.sources.DataSourceAzure import determine_device_driver_for_mac
 # print(f"Количество чисед больше 10: {count}")
 
 #14
-count = 0
-n = int(input("Введите число: "))
-for i in range(1,11):
-    for j in range(1, 11):
-        print(f"{i} * {j} = {i * j}")
-    print()
+# count = 0
+# n = int(input("Введите число: "))
+# for i in range(1,n+1):
+#     for j in range(1, 11):
+#         print(f"{i} * {j} = {i * j}")
+#     print()
 
 #15
 
-determine_device_driver_for_mac()
+n = int(input("Введите Ширину: "))
+i = int(input("Введите высоту: "))
+for i in range(1, i + 1): #Высота (количество итераций в цикле)
+    print("*" * n) #Ширина (количество элементов)
+
