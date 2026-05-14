@@ -167,18 +167,29 @@ from duplicity.config import count
 #         counts = counts + 1
 # print(counts)
 
-#26
+#26 Подчёт гласных и согласных
 
-text = input("Введите слово:")
-g = "аеёиоуыэюя"
-s = "бвгджзйклмнпрстфхцчшщ"
+# text = input("Введите слово:")
+# g = "аеёиоуыэюя"
+# s = "бвгджзйклмнпрстфхцчшщ"
+#
+# count_g = 0
+# count_s = 0
+#
+# for i in text:
+#     if i in g:
+#         count_g = count_g + 1
+#     elif i in s:
+#         count_s = count_s + 1
+# print(f"Гласных: {count_g}, Согласных {count_s}", sep="\n")
 
-count_g = 0
-count_s = 0
+#27 Подсчет общих количество букв во всех словах
+counts = 0
+for i in range(1,6):
+    n = input("Введите слово: ")
+    res = 0
+    for j in n:
+        res = res + 1
+    counts = counts + res
+print(counts)
 
-for i in text:
-    if i in g:
-        count_g = count_g + 1
-    elif i in s:
-        count_s = count_s + 1
-print(f"Гласных: {count_g}, Согласных {count_s}", sep="\n")
