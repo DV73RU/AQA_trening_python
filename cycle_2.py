@@ -1,6 +1,7 @@
 #1
 # for i in range(1,11):
 #     print(i)
+from duplicity.config import count
 
 #2
 # for i in range(10,0,-1):# Старт с 10 до 0 отрицательный step в обратном порядке
@@ -61,15 +62,15 @@
 #     res = res + i
 #     print(res)
 
-#11 Не знаю как решить
-text = input("Введите слово: ")
-g = "аеёиоуыэюя"
-counts = 0
-for i in text:
-    if i in g:
-        counts = counts + 1
-        print(i)
-print(counts)
+#11 Посчёт гласных
+# text = input("Введите слово: ")
+# g = "аеёиоуыэюя"
+# counts = 0
+# for i in text:
+#     if i in g:
+#         counts = counts + 1
+#         print(i)
+# print(counts)
 
 #12
 # maximum = 0
@@ -165,3 +166,19 @@ print(counts)
 #     if b == i:
 #         counts = counts + 1
 # print(counts)
+
+#26
+
+text = input("Введите слово:")
+g = "аеёиоуыэюя"
+s = "бвгджзйклмнпрстфхцчшщ"
+
+count_g = 0
+count_s = 0
+
+for i in text:
+    if i in g:
+        count_g = count_g + 1
+    elif i in s:
+        count_s = count_s + 1
+print(f"Гласных: {count_g}, Согласных {count_s}", sep="\n")
