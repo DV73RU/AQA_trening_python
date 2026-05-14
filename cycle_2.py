@@ -45,11 +45,13 @@
 
 
 
-#9 не знаю как решить
-text = input("Введите слово :")
-for i in text:
-    res = res + i
-print(i)
+#9 Посчитать количество букв в слове
+# text = input("Введите слово :")
+#
+# counts = 0
+# for i in text:
+#     counts = counts + 1
+# print(counts)
 
 
 #10
@@ -60,6 +62,14 @@ print(i)
 #     print(res)
 
 #11 Не знаю как решить
+text = input("Введите слово: ")
+g = "аеёиоуыэюя"
+counts = 0
+for i in text:
+    if i in text
+    print(i)
+
+
 #12
 # maximum = 0
 # for i in range(1,6):
@@ -69,7 +79,7 @@ print(i)
 # print(f"Максимальное число: {maximum}")
 #
 #
-#13 Нужна помощь в решении
+#13
 # minimum = 0
 # for i in range(1,6):
 #     n = int(input("Введите число: "))
