@@ -44,11 +44,12 @@
 #     print(f"{n} * {i} = {i*n}")
 
 
+
 #9 не знаю как решить
-# text = input("Введите слово :")
-# for i in text:
-#     res = res + i
-# print(i)
+text = input("Введите слово :")
+for i in text:
+    res = res + i
+print(i)
 
 
 #10
@@ -108,4 +109,48 @@
 #     n = int(input("Введите число: "))
 #     res = (res + n) / i
 # print(f"Сумма средне арифметическое чисел: {res}")
-#18
+#18 Квадрат числа
+# res = 0
+# n = int(input("Введите число: "))
+# for i in range(1, n+1):
+#     print(i ** 2)
+
+# 19 Звёздочки в линию
+# n = int(input("Введите число: "))
+# for i in range(1, n+1):
+#     print("*", end="")
+
+#20 Квадрат из звёздочек
+# n = int(input("Размер квадрата: "))
+# for i in range(1, n+1):
+#     print("*" * n)
+
+# #21 Треугольник из звёздочек
+# n = int(input("Размер : "))
+# for i in range(1, n+1):
+#     print("*" * i)
+
+# #22 Обратный треугольник из звёздочек
+# n = int(input("Размер: "))
+# for i in range(n, 0, -1):
+#     print("*" * i)
+
+# 23 Число в строку
+# n = int(input("Введите число: "))
+# for i in range(1, n+1):
+#     print(i, end=" ")
+#24 Сумма чисел
+# n =int(input("Введите число:"))
+# res = 0
+# for i in str(n):
+#     res = res + int(i)
+# print(res)
+
+#25
+# text = input("Введите слово: ")
+# b = input("Введите букву: ")
+# counts = 0
+# for i in text:
+#     if b == i:
+#         counts = counts + 1
+# print(counts)
