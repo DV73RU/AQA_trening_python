@@ -66,9 +66,10 @@ text = input("Введите слово: ")
 g = "аеёиоуыэюя"
 counts = 0
 for i in text:
-    if i in text
-    print(i)
-
+    if i in g:
+        counts = counts + 1
+        print(i)
+print(counts)
 
 #12
 # maximum = 0
