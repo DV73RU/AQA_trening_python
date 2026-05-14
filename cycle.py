@@ -202,18 +202,33 @@
 #     print(f"Максимальное чётное число: {maximum}")
 
 #28
-pas = "python123"
-attempt = 3
-for i in range(attempt):
-    n = input("Введите пароль: ")
-    if n == pas:
-        print("ОК")
+# pas = "python123"
+# attempt = 3
+# #
+# # n = input("Введите пароль: ")
+# for i in range(attempt):
+#     n = input("Введите пароль: ")
+#     if n == pas:
+#         print("Доступ разрешён")
+#         break
+#     elif n != pas:
+#         print("Неверный пароль")
+# else:
+#     print("Попытки закончились")
 
+#29
+#
+# text = input("Введите слово: ")
+# print("*" * (len(text) + 4)) #Ширина и вид первой и последней строки
+# print("* " + text + " *") #Ширина и вид сроки не первой и не последней
+# print("*" * (len(text) + 4)) #Ширина и вид первой и последней строки
 
-if attempt == 3 :
-    print("Попытки закончились")
-
-
-
+# #30
+# n = int(input("Введите высоту: "))
+# res = 0
+# for i in range(1, n+1):
+#     for j in range(1, i + 1):
+#         print(j,end="")
+#     print()
 
 
