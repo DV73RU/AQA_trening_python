@@ -219,8 +219,43 @@
 #         long_text = n
 # print(f"Самое длинное слово {long_text} : {maximum} символов ")
 
+#28 Подсчитать сумму только положительных чисел
+# summa = 0
+# for i in range(1,8):
+#     n = int(input("Введите число: "))
+#     if n > 0:
+#         summa = summa + n
+# print(f"Сумма положительных чисел: {summa}")
 
 
+#29 Проверить есть ли буква в слове, как решить циклом?
+# text = input("Введите слов: ")
+# n = input("Введите букву: ")
+#
+# if n in text:
+#     print(f'Буква "{n}" найдена')
+# else:
+#     print(f'Буква "{n}" не найдена')
+
+# #29 Проверить есть ли буква в слове, решить циклом
+# text = input("Введите слово: ")
+# n = input("Введите букву: ")
+# for i in text:
+#     if i == n:
+#         print("Буква найдена")
+#         break
+# else:
+#     print("Буква не найдена")
+
+#30 рамка вокруг слова
+text = input("Введите слово: ")
+w = len(text) + 4
+for i in range(w):
+    print("*", end="")
+print()
+print("* " + text + " *")
+for i in range(w):
+    print("*", end="")
 
 
 
