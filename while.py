@@ -64,11 +64,20 @@
 
 #8
 
-secret = 7
-while True:
-    n = int(input("Введите число: "))
-    if n == secret:
-        print("Угадал")
-        break
-    else:
-        print("Не угадал")
+# secret = 7
+# while True:
+#     n = int(input("Введите число: "))
+#     if n == secret:
+#         print("Угадал")
+#         break
+#     else:
+#         print("Не угадал")
+
+#9
+n = int(input("Введити число: "))
+counts = 0
+res = 0
+while res == 0: # Пока i не станет равной нулю
+    res = i // 10 # Дели n на 10, пока результат делегия не станет равно нулю
+    counts = counts + 1 # Считаеи количество делений
+    print(counts)
