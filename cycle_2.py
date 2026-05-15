@@ -184,6 +184,17 @@ from duplicity.config import count
 # print(f"Гласных: {count_g}, Согласных {count_s}", sep="\n")
 
 #27 Подсчет общих количество букв во всех словах
+# counts = 0
+# for i in range(1,6):
+#     n = input("Введите слово: ")
+#     res = 0
+#     for j in n:
+#         res = res + 1
+#     counts = counts + res
+# print(counts)
+
+
+#27_1 Подсчет общих количество букв во всех словах
 counts = 0
 for i in range(1,6):
     n = input("Введите слово: ")
