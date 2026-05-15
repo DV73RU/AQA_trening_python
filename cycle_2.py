@@ -1,7 +1,7 @@
 #1
 # for i in range(1,11):
 #     print(i)
-from duplicity.config import count
+
 
 #2
 # for i in range(10,0,-1):# Старт с 10 до 0 отрицательный step в обратном порядке
@@ -195,12 +195,32 @@ from duplicity.config import count
 
 
 #27_1 Подсчет общих количество букв во всех словах
-counts = 0
-for i in range(1,6):
-    n = input("Введите слово: ")
-    res = 0
-    for j in n:
-        res = res + 1
-    counts = counts + res
-print(counts)
+# counts = 0
+# for i in range(1,6):
+#     n = input("Введите слово: ")
+#     res = 0
+#     for j in n:
+#         res = res + 1
+#     counts = counts + res
+# print(counts)
+
+
+#27 Найти самое длинное слово
+# counts = 0
+# long_text = None
+# maximum = 0
+# for i in range(1,6):
+#     res = 0
+#     n = input("Введите слово: ")
+#     for j in n:
+#         res = res + 1
+#     if res > maximum:
+#         maximum = res
+#         long_text = n
+# print(f"Самое длинное слово {long_text} : {maximum} символов ")
+
+
+
+
+
 
