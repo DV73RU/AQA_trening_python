@@ -362,3 +362,115 @@
 # numbers = [1, 2, 3, 4, 5]
 # new_num = [i * 2 if i % 2 == 0 else i for i in numbers]
 # print(new_num)
+#
+
+
+# names = ["Anna", "Bob", "Tom", "Kate", "Bob"]
+# n = input("Введите имя: ")
+#
+# if n in names:
+#     idx = names.index(n)
+#     print(f"Индекс: {idx}")
+#
+# else:
+#     print("Такого имени нет")
+
+
+# numbers = [14, 3, 25, 7, 1, 18, 10]
+# numbers.sort(reverse=True)
+# maximum = numbers[0]
+# minimum = numbers[0]
+# for i in numbers:
+#     if i > maximum:
+#         maximum = i
+#     elif i < minimum:
+#         minimum = i
+# print(f"Самое большое число: {maximum}")
+# print(f"Самое маленькое число: {minimum}")
+# print(numbers)
+
+# ls = []
+# for i in range(1,6):
+#     n =int(input("Введите число: "))
+#     ls.append(n)
+#     ls.sort(reverse=True)
+# print(ls)
+
+#4
+# a = [3, 8, 12, 5]
+# b = [10, 15, 2, 20]
+#
+# even_numbers = []
+# even_numbers.extend([i for i in a if i % 2==0])
+# even_numbers.extend([i for i in b if i % 2==0])
+#
+# print(even_numbers)
+
+# numbers = [5, 10, 15, 20]
+# new_number = numbers.copy()
+# new_number.append(25)
+# new_number.remove(10)
+# new_number.sort(reverse=True)
+# print(numbers, new_number, sep="\n")
+
+# matrix = [
+#     [1, 2, 3],
+#     [4, 5, 6],
+#     [7, 8, 9]
+# ]
+#
+# for row in matrix:
+#     print(row)
+#
+# for i in matrix:
+#     for j in i:
+#         print(j)
+
+# matrix = [
+#     [1, 2, 3],
+#     [4, 5, 6],
+#     [7, 8, 9]
+# ]
+# print(matrix[1][1])
+#
+# matrix = [
+#     [10, 20],
+#     [30, 40],
+#     [50, 60]
+# ]
+#
+# for i in matrix:
+#     print(i)
+#
+# matrix = [
+#     [1, 2, 3],
+#     [4, 5, 6]
+# ]
+# for i in matrix:
+#     for j in i:
+#         print(j)
+#
+# matrix = [
+#     [2, 4, 6],
+#     [1, 3, 5],
+#     [10, 20, 30]
+# ]
+#
+# res = 0
+# for i in matrix:
+#     for j in i:
+#         res = res + j
+# print(res)
+#
+# matrix = [
+#     [3, 8, 12],
+#     [5, 10, 15],
+#     [7, 2, 20]
+# ]
+#
+# even_numbers = []
+# for i in matrix:
+#     for j in i:
+#         if j % 2 == 0:
+#             even_numbers.append(j)
+# print(even_numbers)
