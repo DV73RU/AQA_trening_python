@@ -503,20 +503,20 @@
 #     max_numbers.append(ls[0])
 # print(max_numbers)
 
-matrix = [
-    [5, 2, 3],
-    [4, 10, 6],
-    [7, 8, 15]
-]
-new_mum = []
+# matrix = [
+#     [5, 2, 3],
+#     [4, 10, 6],
+#     [7, 8, 15]
+# ]
+# new_mum = []
+#
+# res = 0
+# for i in range(len(matrix)):
+#     print(i)
+#     res = res + matrix[i][i]
+# print(res)
 
-res = 0
-for i in range(len(matrix)):
-    print(i)
-    res = res + matrix[i][i]
-print(res)
-
-
+#
 # matrix = [
 #     [3, 8, 12],
 #     [5, 10, 15],
@@ -525,7 +525,19 @@ print(res)
 #
 # for i in range(len(matrix)):
 #     for j in range(len(matrix[i])):
-#         print(j, end=" ")
-#     print()
+#         if matrix[i][j] % 2 == 0: # Если значения четный
+#             matrix[i][j] = 0
+# print(matrix)
+#
+#
+
+matrix = []
+
+for i in range(1, 4):
+    row = []
+    for j in range(1, 4):
+        row.append(i * j)
+    matrix.append(row)
+print(matrix)
 
 
