@@ -258,3 +258,30 @@
 #     print(ls)
 # else:
 #     print(ls)
+#
+# numbers = [1, 2, 3, 2, 4, 2, 5]
+# res = numbers.count(2)
+# print(res)
+#
+# fruits = ["apple", "banana", "apple", "orange", "apple"]
+# res = fruits.count("apple")
+
+# numbers = [5, 10, 15, 10, 20, 10, 25]
+# n = int(input("Введите число: "))
+# res = numbers.count(n)
+# print(res)
+# if n not in numbers:
+#     print(f"Нет такого числа {n}")
+
+
+# numbers = [3, 7, 11, 7, 15, 20]
+# n = int(input("Введите число: "))
+# if numbers.count(n) > 0:
+#     print("Есть такое число с писке")
+# else:
+#     print("Числа нет в списке")
+
+# numbers = [0, 5, 0, 10, 15, 0, 20, 0]
+# res = 0
+# if res in numbers:
+#     print(numbers.count(res))
