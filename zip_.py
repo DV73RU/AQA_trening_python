@@ -474,3 +474,58 @@
 #         if j % 2 == 0:
 #             even_numbers.append(j)
 # print(even_numbers)
+
+# matrix = [
+#     [1, 2, 3],
+#     [4, 5, 6],
+#     [7, 8, 9]
+# ]
+#
+# row_sums = []
+# # res = 0
+# for i in matrix:
+#     res = 0
+#     for j in i:
+#         res = res + j
+#     row_sums.append(res)
+# print(row_sums)
+
+
+# matrix = [
+#     [3, 8, 12],
+#     [5, 20, 15],
+#     [7, 2, 10]
+# ]
+#
+# max_numbers = []
+# for ls in matrix:
+#     ls.sort(reverse=True)
+#     max_numbers.append(ls[0])
+# print(max_numbers)
+
+matrix = [
+    [5, 2, 3],
+    [4, 10, 6],
+    [7, 8, 15]
+]
+new_mum = []
+
+res = 0
+for i in range(len(matrix)):
+    print(i)
+    res = res + matrix[i][i]
+print(res)
+
+
+# matrix = [
+#     [3, 8, 12],
+#     [5, 10, 15],
+#     [7, 2, 20]
+# ]
+#
+# for i in range(len(matrix)):
+#     for j in range(len(matrix[i])):
+#         print(j, end=" ")
+#     print()
+
+
