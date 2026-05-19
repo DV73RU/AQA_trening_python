@@ -313,3 +313,52 @@
 # words = ["cat", "python", "dog", "apple", "hi"]
 # new_words = [i for i in words if len(i) > 3]
 # print(new_words)
+
+# numbers = [5, 12, 3, 18, 7, 25, 10]
+# res = 0
+# for i in numbers:
+#     res = res + i
+# print(res)
+
+# fruits = ['яблоко','банан','груша','банан','киви']
+# while 'банан' in fruits:
+#     fruits.remove('банан')
+# print(fruits)
+
+# ls = [i for i in range(10,51) if i % 5 == 0]
+# print(ls)
+#
+# ls2 = [i ** 3 for i in range(1, 11)]
+# print(ls2)
+#
+# numbers = [3, -5, 10, -2, 0, 7, -8]
+# new_numbres = [i for i in numbers if i > 0]
+# print(new_numbres)
+#
+# words = ["python", "java", "javascript", "go", "html", "css"]
+# ls_len_words = [len(i) for i in words]
+# print(ls_len_words)
+#
+# numbers = [1, 2, 3, 4, 5]
+# new_num = [i+10 for i in numbers]
+# print(new_num)
+
+# numbers = [1, 2, 3, 4, 5, 6]
+# new_num = ["чётное" if i % 2 == 0 else "Не чётное" for i in numbers]
+# print(new_num)
+#
+# numbers = [3, -5, 0, 10, -2]
+# new_num = ["плюс" if i > 0 else "минус" for i in numbers]
+# print(new_num)
+#
+# numbers = [5, -3, 10, -7, 2]
+# new_num = [0 if i < 0 else i for i in numbers]
+# print(new_num)
+#
+# words = ["cat", "python", "code", "apple"]
+# new_words = ["длинное" if len(i) > 4 else "короткое" for i in words]
+# print(new_words)
+#
+# numbers = [1, 2, 3, 4, 5]
+# new_num = [i * 2 if i % 2 == 0 else i for i in numbers]
+# print(new_num)
