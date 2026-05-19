@@ -285,3 +285,31 @@
 # res = 0
 # if res in numbers:
 #     print(numbers.count(res))
+
+# numbers = [i for i in range(1,6)]
+# print(numbers)
+
+# kd = [j ** 2  for j in range(1,5)]
+# print(kd)
+# ct = [i for i in range(1,11) if i % 2 == 0]
+# print(ct)
+#
+# ct = [i for i in range(1,28) if i > 10]
+# print(ct)
+
+# num = [i for i in range(1,21)]
+# print(num)
+#
+# num2 = [i **2 for i in range(1,11)]
+# print(num2)
+#
+# num3 = [i for i in range(1,31) if i % 2 == 0]
+# print(num3)
+#
+# numbers = [5, 12, 3, 18, 7, 25, 10]
+# new_numbers =[i for i in numbers if i > 10]
+# print(new_numbers)
+#
+# words = ["cat", "python", "dog", "apple", "hi"]
+# new_words = [i for i in words if len(i) > 3]
+# print(new_words)
