@@ -642,3 +642,23 @@
 #         cr = i ** 2
 #         new_numbers.append(cr)
 # print(new_numbers)
+#1
+# ls = [x for x in range(1,21)]
+# print(ls)
+# #2
+# ls = [x for x in range(1,31) if x % 3 ==0 ]
+# print(ls)
+#3
+# numbers = [1, 2, 3, 4, 5, 6, 7]
+# new_numbers = [x**2 for x in numbers if x % 2 != 0]
+# print(new_numbers)
+
+# #4
+# words = ["cat", "python", "apple", "dog", "code", "table"]
+# new_words = [x for x in words if len(x) > 4]
+# print(new_words)
+
+#5
+numbers = [5, -3, 10, -7, 0, 2]
+new_numbers = [0 if x < 0 else x for x in numbers] #Пиши в список 0 для x меньше нуля, если нет пиши x из списка нумберс
+print(new_numbers)
