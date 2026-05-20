@@ -659,6 +659,52 @@
 # print(new_words)
 
 #5
-numbers = [5, -3, 10, -7, 0, 2]
-new_numbers = [0 if x < 0 else x for x in numbers] #Пиши в список 0 для x меньше нуля, если нет пиши x из списка нумберс
-print(new_numbers)
+# numbers = [5, -3, 10, -7, 0, 2]
+# new_numbers = [0 if x < 0 else x for x in numbers] #Пиши в список 0 для x меньше нуля, если нет пиши x из списка нумберс
+# print(new_numbers)
+
+# #1
+# matrix = [
+#     [1, 2, 3],
+#     [4, 5, 6],
+#     [7, 8, 9]
+# ]
+# lst = [i for ls in matrix for i in ls]
+# print(lst)
+
+#2 Только чётные числа из вложенного списка
+# matrix = [
+#     [3, 8, 12],
+#     [5, 10, 15],
+#     [7, 2, 20]
+# ]
+#
+# lst = [i for ls in matrix for i in ls if i % 2 == 0]
+# print(lst)
+
+#3. Квадраты всех чисел
+
+# matrix = [
+#     [1, 2],
+#     [3, 4],
+#     [5, 6]
+# ]
+#
+# lst = [i**2 for ls in matrix for i in ls]
+# print(lst)
+#
+# #4 4. Числа больше 10
+#
+matrix = [
+    [5, 12, 3],
+    [18, 7, 25],
+    [10, 30, 2]
+]
+
+lst = [i for ls in matrix for i in ls if i > 10]
+print(lst)
+
+# 5. Создать таблицу умножения 3x3
+
+lst = [[j for j in range(1,4)] for i in range(1,4)]
+print(lst)
