@@ -531,13 +531,114 @@
 #
 #
 
-matrix = []
+# matrix = []
+#
+# for i in range(1, 4):
+#     row = []
+#     for j in range(1, 4):
+#         row.append(i * j)
+#     matrix.append(row)
+# print(matrix)
 
-for i in range(1, 4):
-    row = []
-    for j in range(1, 4):
-        row.append(i * j)
-    matrix.append(row)
-print(matrix)
+#1 Сумма чисел больше 10
+# numbers = [4, 12, 7, 19, 3, 25, 8, 10]
+# res = 0
+# counts = 0
+# for i in numbers:
+#     if i > 10:
+#         res = res + i
+# print(res)
 
+#2 Новый список больше 10
+# numbers = [5, -3, 10, -7, 0, 2, -1]
+# new_list = []
+# for i in numbers:
+#     if i >= 0:
+#         new_list.append(i)
+# print(new_list)
+#
+# #3 Посчитать количество слов длиннее 4 букв
+# words = ["cat", "python", "apple", "dog", "table", "hi"]
+# counts = 0
+# for i in words:
+#     if len(i) > 4:
+#         counts = counts + 1
+# print(counts)
 
+#4 4. Удалить все числа меньше 5
+# numbers = [1, 7, 3, 9, 2, 10, 4, 6]
+# new_numbers = []
+# for i in numbers:
+#     if i >= 5:
+#         new_numbers.append(i)
+# print(new_numbers)
+
+#5. Найти минимальное число без min()
+# numbers = [14, 3, 25, 7, 1, 18, 10]
+# minimum = numbers[0]
+# for i in numbers:
+#     if i < minimum:
+#         minimum = i
+# print(minimum)
+
+# 6. Заменить все числа больше 10 на 100
+# numbers = [4, 15, 8, 23, 7, 11, 2]
+# numbers = [100 if x >= 10 else x for x in numbers] # Расскажи подробнее как это рабоатет
+# print(numbers)
+#7. Разделить числа на чётные и нечётные
+# numbers = [3, 8, 12, 5, 7, 10, 1, 6]
+# even_numbers = []
+# odd_numbers = []
+# even_numbers = [x if x % 2 ==0 else x for x in numbers]
+# odd_numbers = [x if x % 2 ==0 else x for x in numbers]
+# print(even_numbers)
+#
+
+# for i in numbers:
+#     if i % 2 == 0:
+#         even_numbers.append(i)
+#     elif i % 2 != 0:
+#         odd_numbers.append(i)
+# print(f"Четные: {even_numbers}")
+# print(f"Нечётные: {odd_numbers}")
+
+# 8. Найти сумму каждой строки вложенного списка
+
+# matrix = [
+#     [2, 4, 6],
+#     [1, 3, 5],
+#     [10, 20, 30]
+# ]
+#
+# row_sums = []
+# for ls in matrix:
+#     summa = 0
+#     for j in ls:
+#         summa = summa + j
+#     row_sums.append(summa)
+# print(row_sums)
+
+#9 Найти все числа больше 10 во вложенном списке
+# matrix = [
+#     [5, 12, 3],
+#     [18, 7, 25],
+#     [10, 30, 2]
+# ]
+#
+# big_numbers = []
+# for ls in matrix:
+#     for i in ls:
+#         if i > 10:
+#             big_numbers.append(i)
+# print(big_numbers)
+
+# 10 Создать список квадратов только чётных чисел
+
+# numbers = [1, 2, 3, 4, 5, 6]
+# new_numbers = []
+# for i in numbers:
+#     cr = 0
+#     if i % 2 == 0:
+#         cr = i ** 2
+#         new_numbers.append(cr)
+# print(new_numbers)
