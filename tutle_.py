@@ -154,9 +154,89 @@ from tkinter.font import names
 # print(res)
 
 #8 Нужно создать список кортежей только для товаров, у которых общая стоимость больше 100.
-products = ["apple", "banana", "milk", "bread", "cheese"]
-prices = [50, 30, 100, 40, 150]
-counts = [3, 5, 2, 4, 1]
+# products = ["apple", "banana", "milk", "bread", "cheese"]
+# prices = [50, 30, 100, 40, 150]
+# counts = [3, 5, 2, 4, 1]
+#
+# lst = []
+# for i in range(len(products)):
+#     total = prices[i] * counts[i]
+#     if total > 100:
+#         tup = (products[i],prices[i],counts[i],total)
+#         lst.append(tup)
+# print(lst)
 
+#9 Создай список кортежей только для товаров, у которых количество больше 2.
+#
+# products = ["apple", "banana", "milk", "bread", "cheese"]
+# prices = [50, 30, 100, 40, 150]
+# counts = [3, 5, 2, 4, 1]
+#
+# result = []
+# for i in range(len(products)):
+#      if counts[i] > 2:
+#         tup = (products[i],prices[i],counts[i])
+#         result.append(tup)
+# print(result)
 
-for i in range(len(products)):
+# #10
+#
+# products = ["apple", "banana", "milk", "bread", "cheese"]
+# prices = [50, 30, 100, 40, 150]
+# counts = [3, 5, 2, 4, 1]
+#
+# result = []
+# for i in range(len(products)):
+#     total_price = prices[i] * counts[i]
+#     if prices[i] > 40 and counts[i] > 1:
+#         tup = (products[i], prices[i], counts[i], total_price)
+#         result.append(tup)
+# print(result)
+
+#11
+
+# products = ["apple", "banana", "milk", "bread", "cheese"]
+# prices = [50, 30, 100, 40, 150]
+# counts = [3, 5, 2, 4, 1]
+#
+# result = []
+# for i in range(len(products)):
+#     price = prices[i]
+#     product = products[i]
+#     count = counts[i]
+#     total_price = price * count
+#     if total_price > 150:
+#         tup = (product,total_price)
+#         result.append(tup)
+# print(result)
+
+products = [
+    ("apple", 50, 3),
+    ("banana", 30, 5),
+    ("milk", 100, 2),
+    ("bread", 40, 4),
+    ("cheese", 150, 1)
+]
+
+result = []
+#13_1
+# for tb in products:
+#     name = tb[0]
+#     price = tb[1]
+#     count = tb[2]
+#     total = price * count
+#     if total > 150:
+#         tub = (name,total)
+#         result.append(tub)
+# print(result)
+
+#13_2
+# for name, price, count in products:
+#     print(name,price,count)
+#     total = price * count
+#     if total > 150:
+#         tub = (name,total)
+#         result.append(tub)
+# print(result)
+
+#13
