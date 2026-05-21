@@ -210,15 +210,15 @@ from tkinter.font import names
 #         result.append(tup)
 # print(result)
 
-products = [
-    ("apple", 50, 3),
-    ("banana", 30, 5),
-    ("milk", 100, 2),
-    ("bread", 40, 4),
-    ("cheese", 150, 1)
-]
-
-result = []
+# # products = [
+# #     ("apple", 50, 3),
+# #     ("banana", 30, 5),
+# #     ("milk", 100, 2),
+# #     ("bread", 40, 4),
+# #     ("cheese", 150, 1)
+# # ]
+#
+# result = []
 #13_1
 # for tb in products:
 #     name = tb[0]
@@ -240,3 +240,71 @@ result = []
 # print(result)
 
 #13
+# products = [
+#     ("apple", 50, 3),
+#     ("banana", 30, 5),
+#     ("milk", 100, 2),
+#     ("bread", 40, 4),
+#     ("cheese", 150, 1)
+# ]
+#
+# max_product = None
+# max_total = 0
+#
+# for nane,price,count in products:
+#     total = price*count
+#     if total > max_total:
+#         max_total = total
+#         max_product = nane
+# print(f"Самый дорогой товар по общей стоимости: {max_product}, {max_total}")
+
+#14 Нужно разделить товары на два списка:
+
+# products = [
+#     ("apple", 50, 3),
+#     ("banana", 30, 5),
+#     ("milk", 100, 2),
+#     ("bread", 40, 4),
+#     ("cheese", 150, 1)
+# ]
+#
+# cheap = []
+# expensive = []
+#
+# for name,price,count in products:
+#     if price < 100:
+#         tup = (name,price,count)
+#         cheap.append(tup)
+#     elif price >= 100:
+#         tup = (name,price,count)
+#         expensive.append(tup)
+# print(cheap, expensive, sep="\n")
+
+#
+# На складе
+products = [
+    ("apple", 50, 10),
+    ("banana", 30, 8),
+    ("milk", 100, 5),
+    ("bread", 40, 12)
+]
+
+# Проданные
+sold = [
+    ("apple", 3),
+    ("banana", 2),
+    ("milk", 5),
+    ("bread", 4)
+]
+# Остаток = На складе - проданные
+result = []
+res = 0
+for i in products,sold:
+    name, pr = i
+    print(i)
+
+
+
+
+
+
