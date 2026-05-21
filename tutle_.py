@@ -282,29 +282,58 @@ from tkinter.font import names
 
 #
 # На складе
+# products = [
+#     ("apple", 50, 10),
+#     ("banana", 30, 8),
+#     ("milk", 100, 5),
+#     ("bread", 40, 12)
+# ]
+#
+# # Проданные
+# sold = [
+#     ("apple", 3),
+#     ("banana", 2),
+#     ("milk", 5),
+#     ("bread", 4)
+# ]
+# # Остаток = На складе - проданные
+# result = []
+# res = 0
+# for ls in range(len(products)):
+#     # print(products[ls][2]) #Берём количество products из индекса
+#     # print(sold[ls][1]) #Берём количесто остатков из индекса
+#     name = products[ls][0]
+#     price = products[ls][1]
+#     ost =products[ls][2] - sold[ls][1]
+#     # print(ost)
+#     tub = (name,price,ost)
+#     # print(tub)
+#     result.append(tub)
+# print(result)
+
+#17
+#На складе
 products = [
-    ("apple", 50, 10),
-    ("banana", 30, 8),
-    ("milk", 100, 5),
-    ("bread", 40, 12)
+    ("phone", 500, 6),
+    ("laptop", 1200, 3),
+    ("tablet", 700, 4),
+    ("mouse", 50, 10)
 ]
-
-# Проданные
+#Продано
 sold = [
-    ("apple", 3),
-    ("banana", 2),
-    ("milk", 5),
-    ("bread", 4)
+    ("phone", 2),
+    ("laptop", 1),
+    ("tablet", 4),
+    ("mouse", 6)
 ]
-# Остаток = На складе - проданные
 result = []
-res = 0
-for i in products,sold:
-    name, pr = i
-    print(i)
-
-
-
-
-
-
+for idx in range(len(products)):
+    name = products[idx][0]
+    price = products[idx][1]
+    count = products[idx][2] #  на складе
+    sell = sold[idx][1] #Продано
+    res_ost = count - sell # После продаж на складе
+    vir = sell * price # Выручка
+    tub =(name,price,res_ost,vir)
+    result.append(tub)
+print(result)
