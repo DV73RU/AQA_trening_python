@@ -15,8 +15,7 @@
 # print(name)
 # print(age)
 # print(city)
-from itertools import count
-from tkinter.font import names
+
 
 # #1
 # numbers = (5, 10, 15, 20, 25)
@@ -313,27 +312,40 @@ from tkinter.font import names
 
 #17
 #На складе
+#
+
 products = [
     ("phone", 500, 6),
     ("laptop", 1200, 3),
     ("tablet", 700, 4),
     ("mouse", 50, 10)
 ]
-#Продано
+
 sold = [
-    ("phone", 2),
-    ("laptop", 1),
+    ("mouse", 6),
     ("tablet", 4),
-    ("mouse", 6)
+    ("phone", 2),
+    ("laptop", 1)
 ]
 result = []
-for idx in range(len(products)):
-    name = products[idx][0]
-    price = products[idx][1]
-    count = products[idx][2] #  на складе
-    sell = sold[idx][1] #Продано
-    res_ost = count - sell # После продаж на складе
-    vir = sell * price # Выручка
-    tub =(name,price,res_ost,vir)
-    result.append(tub)
+
+for i in range(len(products)):
+    nam = products[i][0]# Собираем название в products
+    price = products[i][1] #Цена за шт.
+    coun = products[i][2] # Наличие на складе
+    for j in range(len(sold)): # собираем название в sold
+        nam1 = sold[j][0]
+        if nam == nam1: # если имя в продуктс равно имени в солд
+            # print(f"нашли {nam1}, индекс в sold- {j}") #ПЕчатаем индексы волд
+            solds = sold[j][1] #Продано шт.
+            ost = coun - solds # Остаток
+            vr = price * solds # Выручка
+            tub = (nam1,price,ost,vr)
+            result.append(tub)
 print(result)
+
+
+
+
+
+
