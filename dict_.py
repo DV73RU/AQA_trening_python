@@ -65,3 +65,66 @@
 # for key, value in product.items():
 #     print(key, value)
 
+#1
+# user = {
+#     "name": "Anna",
+#     "age": 25,
+#     "city": "Moscow"
+# }
+#
+# print(f"Имя: {user.get("name")}")
+# print(f"Возраст: {user.get("age")}")
+# print(f"Город: {user.get("city")}")
+#
+
+#3
+# product = {
+#     "title": "Milk",
+#     "price": 100,
+#     "count": 5
+# }
+#
+# product.update({"price":200})
+# product["category"] = "Food"
+# product.pop("count")
+# print(product)
+
+#4
+prices = {
+    "apple": 50,
+    "banana": 30,
+    "milk": 100,
+    "bread": 40,
+    "cheese": 150
+}
+
+for key,value in prices.items():
+    if value > 50:
+        print(key, value)
+
+#5
+# prices = {
+#     "apple": 50,
+#     "banana": 30,
+#     "milk": 100,
+#     "bread": 40
+# }
+#
+# res = 0
+# for value in prices.values():
+#     res = res + value
+# print(res)
+
+#6
+
+students = {
+    "Anna": 5,
+    "Bob": 4,
+    "Tom": 3,
+    "Kate": 5,
+    "Max": 2
+}
+
+for key,value in students.items():
+    if value == 5:
+        print(key)
