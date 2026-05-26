@@ -112,7 +112,54 @@
 #     return number % 2 == 0
 # print(is_even(113))
 
-def greet(name = "Гость"):
-    print(f"Привет {name}")
+# def greet(name = "Гость"):
+#     print(f"Привет {name}")
+#
+# greet("Толя")
 
-greet("Толя")
+# squre = lambda x: x ** 2
+# print(squre(5))
+# print(squre(10))
+#
+# summa = lambda x,y: x+y
+# print(summa(10,20))
+# print(summa(5,7))
+#
+# is_even = lambda x : "even" if x % 2 == 0 else "odd"
+# print(is_even(2))
+# print(is_even(5))
+#
+# def hello():
+#     message = "Hello"
+#     print(message)
+# hello()
+#
+# name = "Anna"
+# def show_name():
+#     print(name)
+#
+# show_name()
+#
+# count = 0
+# def increase():
+#     global count
+#     count = count + 1
+#     return count
+#
+# increase()
+# increase()
+# increase()
+# print(count)
+#
+#
+# balance = 1000
+# def buy(price):
+#     global balance
+#     balance = balance - price
+#     return balance
+#
+# buy(200)
+# buy(150)
+# print(balance)
+
+numbers = [1, 2, 3, 4, 5]
