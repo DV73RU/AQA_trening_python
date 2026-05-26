@@ -162,4 +162,36 @@
 # buy(150)
 # print(balance)
 
-numbers = [1, 2, 3, 4, 5]
+#1
+# numbers = [1, 2, 3, 4, 5]
+#
+# def lis_kd(ls):
+#
+#     return list(map(lambda x: x ** 2, ls)) #Верни список из квадратов поочеёдно из элементов переданного списка
+#
+# # lis_kd(numbers)
+# print(lis_kd(numbers)) #Печатаем выполнение функции с переданным листом
+
+# Задача 2 — оставить только чётные через filter
+#
+# numbers = [1, 2, 3, 4, 5, 6, 7, 8]
+# def lst_odd(ls):
+#     return list(filter(lambda x: x % 2 == 0,ls)) #Верни список отфильровав в нём элементы согласно условию
+#
+# print(lst_odd(numbers))
+
+# Задача 3 — оставить только слова длиннее 4 букв
+words = ["cat", "apple", "dog", "banana", "car", "python"]
+
+def lene_4(ls):
+    return list(filter(lambda x: len(x)>4,ls))
+
+print(lene_4(words))
+
+# Задача 4 — перевести цены в доллары
+
+prices = [100, 250, 500, 1000]
+def r_to_dolr(ls):
+    return list(map(lambda x: x / 100,ls))
+
+print(r_to_dolr(prices))
