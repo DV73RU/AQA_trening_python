@@ -195,3 +195,39 @@ def r_to_dolr(ls):
     return list(map(lambda x: x / 100,ls))
 
 print(r_to_dolr(prices))
+
+# Задача 5 — оставить положительные числа
+
+numbers = [-5, 10, -2, 0, 7, -1, 3]
+def plus_num(ls):
+    return list(filter(lambda x:x > 0,ls))
+
+print(plus_num(numbers))
+
+# Задача 6 — сделать имена с большой буквы
+
+names = ["anna", "bob", "tom", "kate"]
+
+def upp(ls):
+    return list(map(lambda name: name.capitalize(),ls))
+
+print(upp(names))
+
+# Задача 7 — получить длину каждого слова
+
+words = ["hello", "python", "code"]
+
+def lens_words(ls):
+    return list(map(lambda word: len(word),ls))
+
+print(lens_words(words))
+
+# Задача 8 — сначала отфильтровать, потом изменить
+
+numbers = [1, 2, 3, 4, 5, 6]
+
+def news(ls):
+    return list(filter(lambda x: x % 2 == 0,ls))
+
+
+print(news(numbers))
