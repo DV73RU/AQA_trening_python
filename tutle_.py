@@ -338,7 +338,7 @@ for i in range(len(products)):
         if nam == nam1: # если имя в продуктс равно имени в солд
             # print(f"нашли {nam1}, индекс в sold- {j}") #ПЕчатаем индексы волд
             solds = sold[j][1] #Продано шт.
-            ost = coun - solds # Остаток
+            ost = coun - solds # ОстатокS
             vr = price * solds # Выручка
             tub = (nam1,price,ost,vr)
             result.append(tub)

@@ -227,7 +227,34 @@ print(lens_words(words))
 numbers = [1, 2, 3, 4, 5, 6]
 
 def news(ls):
-    return list(filter(lambda x: x % 2 == 0,ls))
-
+     new_list = list(filter(lambda x: x % 2 == 0,ls)) #Фильтруем четные в списке
+     return list(map(lambda x:x**2,new_list)) # Возвращяем квадраты отфильтрованного списка
 
 print(news(numbers))
+
+# Задача 9 — оставить товары дороже 100
+prices = [50, 120, 90, 200, 300, 70]
+def price_100(ls):
+    return list(filter(lambda x: x >100,ls))
+
+print(price_100(prices))
+
+# Задача 10 — добавить к каждому числу 10
+
+numbers = [5, 10, 15, 20]
+
+def plus_10(ls):
+    return list(map(lambda x:x+10,ls))
+
+print(plus_10(numbers))
+
+users = [
+    {"name": "Anna", "age": 25},
+    {"name": "Bob", "age": 17},
+    {"name": "Tom", "age": 30},
+    {"name": "Kate", "age": 15}
+]
+
+for lst in range(len(users)):
+    name = users[lst][0]
+    print(name)
