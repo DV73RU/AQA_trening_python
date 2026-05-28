@@ -181,73 +181,112 @@
 # print(lst_odd(numbers))
 
 # Задача 3 — оставить только слова длиннее 4 букв
-words = ["cat", "apple", "dog", "banana", "car", "python"]
+# words = ["cat", "apple", "dog", "banana", "car", "python"]
+#
+# def lene_4(ls):
+#     return list(filter(lambda x: len(x)>4,ls))
+#
+# print(lene_4(words))
+#
+# # Задача 4 — перевести цены в доллары
+#
+# prices = [100, 250, 500, 1000]
+# def r_to_dolr(ls):
+#     return list(map(lambda x: x / 100,ls))
+#
+# print(r_to_dolr(prices))
+#
+# # Задача 5 — оставить положительные числа
+#
+# numbers = [-5, 10, -2, 0, 7, -1, 3]
+# def plus_num(ls):
+#     return list(filter(lambda x:x > 0,ls))
+#
+# print(plus_num(numbers))
+#
+# # Задача 6 — сделать имена с большой буквы
+#
+# names = ["anna", "bob", "tom", "kate"]
+#
+# def upp(ls):
+#     return list(map(lambda name: name.capitalize(),ls))
+#
+# print(upp(names))
+#
+# # Задача 7 — получить длину каждого слова
+#
+# words = ["hello", "python", "code"]
+#
+# def lens_words(ls):
+#     return list(map(lambda word: len(word),ls))
+#
+# print(lens_words(words))
+#
+# # Задача 8 — сначала отфильтровать, потом изменить
+#
+# numbers = [1, 2, 3, 4, 5, 6]
+#
+# def news(ls):
+#      new_list = list(filter(lambda x: x % 2 == 0,ls)) #Фильтруем четные в списке
+#      return list(map(lambda x:x**2,new_list)) # Возвращяем квадраты отфильтрованного списка
+#
+# print(news(numbers))
+#
+# # Задача 9 — оставить товары дороже 100
+# prices = [50, 120, 90, 200, 300, 70]
+# def price_100(ls):
+#     return list(filter(lambda x: x >100,ls))
+#
+# print(price_100(prices))
+#
+# # Задача 10 — добавить к каждому числу 10
+#
+# numbers = [5, 10, 15, 20]
+#
+# def plus_10(ls):
+#     return list(map(lambda x:x+10,ls))
+#
+# print(plus_10(numbers))
 
-def lene_4(ls):
-    return list(filter(lambda x: len(x)>4,ls))
-
-print(lene_4(words))
-
-# Задача 4 — перевести цены в доллары
-
-prices = [100, 250, 500, 1000]
-def r_to_dolr(ls):
-    return list(map(lambda x: x / 100,ls))
-
-print(r_to_dolr(prices))
-
-# Задача 5 — оставить положительные числа
-
-numbers = [-5, 10, -2, 0, 7, -1, 3]
-def plus_num(ls):
-    return list(filter(lambda x:x > 0,ls))
-
-print(plus_num(numbers))
-
-# Задача 6 — сделать имена с большой буквы
-
-names = ["anna", "bob", "tom", "kate"]
-
-def upp(ls):
-    return list(map(lambda name: name.capitalize(),ls))
-
-print(upp(names))
-
-# Задача 7 — получить длину каждого слова
-
-words = ["hello", "python", "code"]
-
-def lens_words(ls):
-    return list(map(lambda word: len(word),ls))
-
-print(lens_words(words))
-
-# Задача 8 — сначала отфильтровать, потом изменить
+# Задача 1
 
 numbers = [1, 2, 3, 4, 5, 6]
 
-def news(ls):
-     new_list = list(filter(lambda x: x % 2 == 0,ls)) #Фильтруем четные в списке
-     return list(map(lambda x:x**2,new_list)) # Возвращяем квадраты отфильтрованного списка
+def even_u_10(ls):
+    return list(map(lambda x: x * 10, filter(lambda x: x % 2 == 0,ls))) # Не понятно в какой последовательности (сначало фистьруем, потом отфильтрованое умножаем?)
 
-print(news(numbers))
+print(even_u_10(numbers))
 
-# Задача 9 — оставить товары дороже 100
-prices = [50, 120, 90, 200, 300, 70]
-def price_100(ls):
-    return list(filter(lambda x: x >100,ls))
+# Задача 2
+words = ["apple", "banana", "cat", "dog", "python"]
+#
+news_words = [word.capitalize() for word in words if len(word)>3] #Отладка
 
-print(price_100(prices))
+print(news_words)
 
-# Задача 10 — добавить к каждому числу 10
+def up_words(ls):
+    return list(filter(lambda word: len(word)>3, map(lambda word: word.capitalize(), ls)))
 
-numbers = [5, 10, 15, 20]
+print(up_words(words))
 
-def plus_10(ls):
-    return list(map(lambda x:x+10,ls))
+# Задача 3
 
-print(plus_10(numbers))
+prices = [100, 200, 300, 400]
 
+def discont_10(ls):
+    return list(map(lambda x:x - x/100*10,ls))
+
+print(discont_10(prices))
+
+#Задача 4
+numbers = [10, -5, 20, -3, 0, 15]
+
+def odd_plus_100(ls):
+    return list(map(lambda x: x+100, filter(lambda x: x > 0,ls)))
+
+print(odd_plus_100(numbers))
+
+# Задача 5
 users = [
     {"name": "Anna", "age": 25},
     {"name": "Bob", "age": 17},
@@ -255,6 +294,10 @@ users = [
     {"name": "Kate", "age": 15}
 ]
 
-for lst in range(len(users)):
-    name = users[lst][0]
-    print(name)
+# adults = [user for user in users if user["age"] >= 18] # Отладка
+# print(adults)
+
+def adults(ls):
+    return list(filter(lambda x: x["age"] >= 18,ls))
+
+print(adults(users))
