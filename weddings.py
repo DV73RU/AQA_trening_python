@@ -53,8 +53,33 @@
 # print(squre(5))
 # print(cude(2))
 
-def make_discount(percent): # Функция приимает значение скидки
-    def apply_discount(price): # Функция принимает цену и возвращяет скидку
-        discount = price - (price*100/percent) # Считаем результат вычета из цены скидку
-        return discount # Возвращяем подсчёт дисконта
-    return apply_discount  #Возвращяем что то
+# def make_discount(percent): # Функция приимает значение скидки
+#     def apply_discount(price): # Функция принимает цену и возвращяет скидку
+#         discount = price - (price * percent / 100) # Считаем результат вычета из цены скидку
+#         return discount # Возвращяем подсчёт дисконта
+#     return apply_discount  #Возвращяем что то
+#
+# disсount_10 = make_discount(10) # Скидка 10%
+# disсount_25 = make_discount(25) # Скидка 25%
+#
+# disсount_90 = make_discount(90)  # Скидка 90%
+#
+# print(disсount_10(100))
+# print(disсount_10(200))
+# print(disсount_25(1000))
+# print(disсount_90(100))
+
+def make_password_checker(min_length): #Функция принимает проверяемое значение количества знаков в пароле
+    def check_password(password): #Функция принимает значение пароля
+        return len(password) >= min_length #Вернём булевое значение условия
+
+    return check_password #Вернём внутренню функцию
+
+
+checker_6 = make_password_checker(6)
+checker_10 = make_password_checker(10)
+
+print(checker_6("qwerty"))
+print(checker_6("abc"))
+print(checker_10("qwerty12345"))
+print(checker_10("qwerty"))
