@@ -95,3 +95,16 @@
 #
 # print(percent_10(100)) #Печатаем итоговую цену с учетом процентной ставки 10% и цены товара 100
 # print(percent_25(280)) #Печатаем итоговую цену с учетом процентной ставки 25% и цены товара 280
+
+def make_prefix(prefix): # Принимаем префикс
+    def add_prefix(name):
+        return prefix + name # Вернем значение префикса + имя
+    return add_prefix
+
+prefix_mr = make_prefix("Mr. ")
+prefix_dr = make_prefix("Dr. ")
+prefix_user = make_prefix("User: ")
+
+print(prefix_mr("Smith"))
+print(prefix_dr("House"))
+print(prefix_user("Alex"))
