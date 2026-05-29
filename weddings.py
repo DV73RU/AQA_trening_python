@@ -69,17 +69,29 @@
 # print(disсount_25(1000))
 # print(disсount_90(100))
 
-def make_password_checker(min_length): #Функция принимает проверяемое значение количества знаков в пароле
-    def check_password(password): #Функция принимает значение пароля
-        return len(password) >= min_length #Вернём булевое значение условия
+# def make_password_checker(min_length): #Функция принимает проверяемое значение количества знаков в пароле
+#     def check_password(password): #Функция принимает значение пароля
+#         return len(password) >= min_length #Вернём булевое значение условия
+#
+#     return check_password #Вернём внутренню функцию
+#
+#
+# checker_6 = make_password_checker(6) # Проверяющая функция количество символов (6 символов)
+# checker_10 = make_password_checker(10)
+#
+# print(checker_6("qwerty"))
+# print(checker_6("abc"))
+# print(checker_10("qwerty12345"))
+# print(checker_10("qwerty"))
 
-    return check_password #Вернём внутренню функцию
-
-
-checker_6 = make_password_checker(6)
-checker_10 = make_password_checker(10)
-
-print(checker_6("qwerty"))
-print(checker_6("abc"))
-print(checker_10("qwerty12345"))
-print(checker_10("qwerty"))
+# def make_tax_calculator(tax_percent): #Функция принимает процент налога:
+#     def price_un(price): #Функция принимает цену товара, и считает новую цену с учетом налога.
+#         res = price + price * tax_percent / 100 #Посчитываем цену с учётом процентов
+#         return res #Вернём результат
+#     return price_un
+#
+# percent_10 = make_tax_calculator(10) #Процентная ставка 10%
+# percent_25 = make_tax_calculator(25) #Процентная ставка 25%
+#
+# print(percent_10(100)) #Печатаем итоговую цену с учетом процентной ставки 10% и цены товара 100
+# print(percent_25(280)) #Печатаем итоговую цену с учетом процентной ставки 25% и цены товара 280
