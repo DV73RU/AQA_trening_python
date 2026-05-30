@@ -19,9 +19,8 @@ with open("example.txt",'r') as file:
 
     lst = [i.replace('\n', '') for i in  lines]
     print(lst)
-
-
-
+    lst = [i.replace('.',':') for  i in lst]
+    print(lst)
 
 
 
