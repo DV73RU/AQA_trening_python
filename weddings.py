@@ -96,15 +96,43 @@
 # print(percent_10(100)) #Печатаем итоговую цену с учетом процентной ставки 10% и цены товара 100
 # print(percent_25(280)) #Печатаем итоговую цену с учетом процентной ставки 25% и цены товара 280
 
-def make_prefix(prefix): # Принимаем префикс
-    def add_prefix(name):
-        return prefix + name # Вернем значение префикса + имя
-    return add_prefix
+# def make_prefix(prefix): # Принимаем префикс
+#     def add_prefix(name):
+#         return prefix + name # Вернем значение префикса + имя
+#     return add_prefix
+#
+# prefix_mr = make_prefix("Mr. ")
+# prefix_dr = make_prefix("Dr. ")
+# prefix_user = make_prefix("User: ")
+#
+# print(prefix_mr("Smith"))
+# print(prefix_dr("House"))
+# print(prefix_user("Alex"))
 
-prefix_mr = make_prefix("Mr. ")
-prefix_dr = make_prefix("Dr. ")
-prefix_user = make_prefix("User: ")
+# def make_suffix(suffix):
+#     def add_url(url):
+#         return f"{url}{suffix}"
+#     return add_url
+#
+# com = ".com"
+# ru = ".ru"
+# vl = "!"
+#
+# add_com = make_suffix(com)
+# add_ru = make_suffix(ru)
+# add_execlaim = make_suffix(vl)
+# print(add_com("google"))
+# print(add_ru("yandex"))
+# print(add_execlaim("Hi"))
 
-print(prefix_mr("Smith"))
-print(prefix_dr("House"))
-print(prefix_user("Alex"))
+
+def make_clicker():
+    count = 0
+    def add_counts():
+        nonlocal count
+        count = count + 1
+        return count
+    return add_counts
+
+clicker = make_clicker()
+print(clicker())
