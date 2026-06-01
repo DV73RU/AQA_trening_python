@@ -46,26 +46,27 @@ import os
 #             print(f"{name} - {price}")
 #         # print(price)
 
-folder = "logs"
-name_file = "actions.txt"
+# folder = "logs"
+# name_file = "actions.txt"
+#
+# path = os.path.join(folder,name_file)
+#
+# if not os.path.exists(folder):
+#     os.mkdir(folder)
+#
+# with open(path,"w") as file:
+#     file.write("login\n")
+#     file.write("open_page\n")
+#     file.write("click_button\n")
+#
+# with open(path,"a") as file:
+#     file.write("send_form\n")
+#     file.write("logaut\n")
+#
+# count = 0
+# with open(path,"r") as file:
+#     for line in file:
+#         count = count + 1
+#         print(f"Действие: {line.strip()}")
+# print(f"Количестов действий: {count}")
 
-path = os.path.join(folder,name_file)
-
-if not os.path.exists(folder):
-    os.mkdir(folder)
-
-with open(path,"w") as file:
-    file.write("login\n")
-    file.write("open_page\n")
-    file.write("click_button\n")
-
-with open(path,"a") as file:
-    file.write("send_form\n")
-    file.write("logaut\n")
-
-count = 0
-with open(path,"r") as file:
-    for line in file:
-        count = count + 1
-        print(f"Действие: {line.strip()}")
-print(f"Количестов действий: {count}")
