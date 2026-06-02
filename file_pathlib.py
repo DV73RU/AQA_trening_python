@@ -83,25 +83,75 @@ from pathlib import Path
 #         print(f"{name} - {price}")
 #
 
-data = "Anna:5\nBob:3\nTom:4\nKate:2\nMax:5"
-folder = Path("students") #Название папки
-file_name = "grades.txt"
-path = folder / file_name
+# data = "Anna:5\nBob:3\nTom:4\nKate:2\nMax:5"
+# folder = Path("students") #Название папки
+# file_name = "grades.txt"
+# path = folder / file_name
+#
+# folder.mkdir(exist_ok=True)
+# path.write_text(data)
+#
+#
+# total = 0
+# cout = 0
+# text_in_file = path.read_text()
+# for line in text_in_file.splitlines():
+#     # print(line)
+#     name, grade = line.strip().split(":")
+#     grade = int(grade)
+#     total = total + grade
+#     cout = cout + 1
+# sr = total / cout
+#
+# print(f"Средняя оценка:{sr}")
 
-folder.mkdir(exist_ok=True)
-path.write_text(data)
+folder = Path("students")
+name_files = "grades.txt"
+name_files_2 = "good_students.txt"
+path = folder / name_files
+path_2 = folder / name_files_2
+
+print(folder.is_dir())
+
+with open(path,"r") as file:
+    text = file.readlines()
+    print(text)
 
 
-total = 0
-cout = 0
-text_in_file = path.read_text()
-for line in text_in_file.splitlines():
-    # print(line)
-    name, grade = line.strip().split(":")
-    grade = int(grade)
-    total = total + grade
-    cout = cout + 1
-sr = total / cout
 
-print(f"Средняя оценка:{sr}")
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
