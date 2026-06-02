@@ -1,5 +1,7 @@
 from pathlib import Path
 
+from pyparsing import lineStart
+
 # path = Path("logs") / "actions.txt"
 
 # print(path)
@@ -104,25 +106,35 @@ from pathlib import Path
 # sr = total / cout
 #
 # print(f"Средняя оценка:{sr}")
-
-folder = Path("students")
-name_files = "grades.txt"
-name_files_2 = "good_students.txt"
-path = folder / name_files
-path_2 = folder / name_files_2
-
-print(folder.is_dir())
-
-with open(path,"r") as file:
-    text = file.readlines()
-    print(text)
-
-
-
-
-
-
-
+#
+# folder = Path("students")
+# name_files = "grades.txt"
+# name_files_2 = "good_students.txt"
+# path = folder / name_files
+# path_2 = folder / name_files_2
+#
+# folder.mkdir(exist_ok=True)
+#
+#
+#
+# print(folder.is_dir())
+#
+# good_line = []
+# texts = path.read_text()
+#
+# for line in texts.splitlines():
+#     name, grade = line.split(":")
+#     if int(grade) == 4:
+#         print(f"{name} - Хорошё")
+#         good_line.append(f"{name} - Хорошё")
+#
+#     elif int(grade) == 5:
+#         good_line.append(f"{name} - Отлично")
+#         print(f"{name} - Отлитчно")
+#
+# print(good_line)
+#
+# path_2.write_text("\n".join(good_line))
 
 
 
