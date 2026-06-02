@@ -131,19 +131,66 @@ from pyparsing import lineStart
 #     elif int(grade) == 5:
 #         good_line.append(f"{name} - Отлично")
 #         print(f"{name} - Отлитчно")
+
 #
 # print(good_line)
 #
 # path_2.write_text("\n".join(good_line))
 
 
+#Создаём лог файл
+# data = "INFO:Start\nERROR:File not found\nINFO:Continue\nERROR:Timeout\nINFO:Finish"
+data = """ERROR:File not found
+ERROR:Timeout
+ERROR:Timeout
+ERROR:File not found
+ERROR:Timeout"""
+
+folder_name = Path("logs")
+file_name = "logs.log"
+file_error = "error.txt"
+path = folder_name / file_name
+path_error = folder_name / file_error
+#Проверяем есть ли директория
+
+if folder_name.is_dir():
+    print(f"Директоря: {folder_name} существует")
+else:
+    print(f"Директория не сущестовует, создаю директорию: {folder_name}")
+    folder_name.mkdir()
 
 
+# try:
+#     with open(path,"x") as file: #Создаем файл
+#         pass #Пустой
+#         print(f"Файл: {file_name} - создан")
+# except FileExistsError:
+#     print(f"Фаил: {file_name}  существует", "------------", sep="\n")
+
+path.write_text(data) # Пишем в файл logs.log
+
+text_log = path.read_text()
+count_error = 0
+count_info = 0
+error_lst = []
+status = {}
+for line in text_log.splitlines():
+    level, message = line.split(":")
+    if level == "ERROR":
+        count_error = count_error + 1
+        if message in status:
+            status[message] = status[message] + 1
+        else:
+            status[message] = 1
+
+print(f"Количесто ERROR: {count_error}")
+print(error_lst)
+print(status)
 
 
-
-
-
+path_error.write_text("\n".join(error_lst))
+path_error.write_text()
+print(f"Записали в файл /{path_error}: {count_error} ошибки")
 
 
 
