@@ -232,3 +232,5 @@
 #     print()
 
 
+i = int(input())
+print(len(i))
