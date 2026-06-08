@@ -1,6 +1,7 @@
 # объявление функции
 # from tutle_ import result
 from datetime import datetime,timedelta
+from itertools import count
 from tkinter.font import names
 
 # объявление функции
@@ -97,11 +98,38 @@ from tkinter.font import names
 
 # def get_factors(num):
 #     lst = []
+#     count = 0
 #     for i in range(1,num+1):
 #         if num % i == 0:
 #             lst.append(i)
-#     return lst
+#             count = count + 1
+#     return count
 #
 # b = int(input())
 #
 # print(get_factors(b))
+
+# объявление функции
+# def get_unique(numbers):
+#     lst = []
+#     for i in numbers:
+#         if i not in lst:
+#             lst.append(i)
+#     return lst
+#
+# # считываем данные
+# numbers = eval(input())
+#
+# # вызываем функцию
+# print(get_unique(numbers))
+
+# объявление функции
+def get_last_index(data, value):
+    pass
+
+# считываем данные
+data = eval(input())
+value = eval(input())
+
+# вызываем функцию
+print(get_last_index(data, value))
