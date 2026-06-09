@@ -138,12 +138,43 @@ from itertools import count
 # print(get_last_index(data, value))
 
 # объявление функции
-def find_all(target, symbol):
-    pass
-
+# def find_all(target, symbol):
+#     idx_symbol = (idx for idx,val in enumerate(target))
+    # lst_idx_symbol = []
+    # for idx, val in enumerate(target):
+    #     if val == symbol:
+    #         lst_idx_symbol.append(idx)
+    # return lst_idx_symbol
+#
 # считываем данные
-s = input()
-char = input()
-
+# s = input()
+# char = input()
+#
 # вызываем функцию
-print(find_all(s, char))
+# print(find_all(s, char))
+
+# объявление функции
+# def merge(list1, list2):
+#     lsr = [i for i in list1 + list2]
+#     lsr.sort()
+#     return  lsr
+#
+# # считываем данные
+# numbers1 = [int(c) for c in input().split()]
+# numbers2 = [int(c) for c in input().split()]
+#
+# # вызываем функцию
+# print(merge(numbers1, numbers2))
+def quick_megre():
+    n = int(input())
+    res_lst = []
+
+    for i in range(1,n+1):
+        list1 = input()
+        numbers = [int(x) for x in list1.split()]
+        res_lst.extend(numbers)
+    res_lst.sort()
+
+    return " ".join(str(i) for i in res_lst)
+
+print(quick_megre())
