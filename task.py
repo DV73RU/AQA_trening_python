@@ -2,7 +2,6 @@
 # from tutle_ import result
 from datetime import datetime,timedelta
 from itertools import count
-from tkinter.font import names
 
 # объявление функции
 # def draw_triangle(fill, base):
@@ -124,12 +123,27 @@ from tkinter.font import names
 # print(get_unique(numbers))
 
 # объявление функции
-def get_last_index(data, value):
+# def get_last_index(data, value):
+#     if value not in data:
+#         return "ERROR!"
+#     else:
+#         max_idx = max(idx for idx, val in enumerate(data) if val == value)
+#         return max_idx
+#
+# data = eval(input())
+# value = eval(input())
+#
+#
+#
+# print(get_last_index(data, value))
+
+# объявление функции
+def find_all(target, symbol):
     pass
 
 # считываем данные
-data = eval(input())
-value = eval(input())
+s = input()
+char = input()
 
 # вызываем функцию
-print(get_last_index(data, value))
+print(find_all(s, char))
