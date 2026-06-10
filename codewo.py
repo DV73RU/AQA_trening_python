@@ -7,6 +7,8 @@
 # print(number_to_string(num))
 from os import mkdir
 
+from urllib3 import proxy_from_url
+
 # def remove_char(s):
 #     new_r = s[1:-1]
 #     return new_r
@@ -57,7 +59,80 @@ from os import mkdir
 #
 # print(area_or_perimeter(10,9))
 
-from preloaded import Like, Dislike, Nothing
+# def sp_eng(sentence):
+#
+#     # sentence.lower()
+#     h = "english"
+#     return h in sentence.lower()
+#
+# s = "abcEnglishdef"
+# print(sp_eng(s))
 
-def like_or_dislike(lst):
-    return Like or Dislike or Nothing
+# def polindrom(s):
+#     if s[:].lower() == s[::-1].lower():
+#         print("Полиндром")
+#     else:
+#         print("Не полиндром")
+#
+# polindrom("Анна")
+
+
+# n = 10
+# res = 0
+# a = 1
+# b = 1
+# while a < n:
+#     res = res + a
+#     a, b = b, a+b
+#     # res = res + a
+#     print(a)
+# print(res)
+
+# n = [1,2,3,4,5,6,7,8,9]
+# even = [x for x in n if x % 2 == 0]
+#
+# if even:
+#     sun = sum(even)
+#     sr = sun/len(even)
+#     print(f"Средне арифмет {sr}")
+# else:
+#     print(f"Нет чётных чеисел")
+#
+# n = 10
+# a = 0
+# b = 1
+# idx = 0
+# coun = 0
+# while coun < n:
+#         if idx %2 == 0:
+#             print(a, end=" ")
+#             coun = coun +1
+#
+#         a, b  = b, a + b
+#         idx = idx +1
+#
+
+    # ch = 1
+    # while ch < 20:
+    #     ch = ch + 1
+    #     if ch % 3 == 0 and ch % 5 == 0:
+    #         print(f"FizzBuzz - {ch}")
+    #     elif ch % 3 == 0:
+    #         print(f"Fizz - {ch}")
+    #     elif ch % 5 == 0:
+    #         print(f"Buzz - {ch}")
+    #     else:
+    #         print(ch)
+    # else:
+        # print(n)
+
+
+n = [1, 2, 3, 90, 45, 1, 33, 98]
+maximum1 = n[0]
+maximum2 = n[1]
+for i in n:
+    if maximum1 < i:
+        maximum1 = maximum2
+        maximum2 = i
+
+print(maximum2,maximum1)
