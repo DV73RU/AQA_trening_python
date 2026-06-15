@@ -9,6 +9,8 @@ from os import mkdir
 
 from urllib3 import proxy_from_url
 
+from dict_trening import minimum
+
 # def remove_char(s):
 #     new_r = s[1:-1]
 #     return new_r
@@ -318,17 +320,37 @@ from urllib3 import proxy_from_url
 #        res =res + j
 #     print(f"Строка {line}: {res}")
 
+
+
+# lst = []
+# # res = 0
+# res = 0
+# for i in range(len(matrix[0])): # Возьми индексы столбцов первого списка
+#     for j in matrix:  # Возьми каждый спсисок в списке.
+#         ch = j[i] # Значение столбца
+#         # print(ch)
+#         res = res + ch
+#     print(f"Столбец {i+1}: {res}")
+
+
+
+# maximum = matrix[0][0]
+# for i, lst in enumerate(matrix):
+#     maximum = lst[0]
+#     for idx , il in enumerate(lst):
+#         if il > maximum:
+#             maximum = il
+#     print(f"Строка: {i+1}: {maximum}")
+
 matrix = [
     [1, 2, 3],
     [4, 5, 6],
     [7, 8, 9]
 ]
 
-for idx, val in enumerate(matrix):
-    res = 0
-    print(val[idx])
-    for i, v in  enumerate(val):
-        # print(val[i])
-        # pass
-        res = res + v
-    # print(res)
+for i in range(len(matrix[0])): #Генерим индексы в строке
+    minimum = i
+    for lst in matrix: # Переибирвем вложенные списки
+        if minimum < lst[i]:
+            minimum = lst[i]
+    print(minimum)
