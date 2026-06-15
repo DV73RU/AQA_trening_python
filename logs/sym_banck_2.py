@@ -9,15 +9,13 @@ with open ("data.json", "r", encoding="utf-8") as f:
     data = json.load(f)
 
 #Функция возвращяет баланс
-def get_balans():
-    balance = data.get("balance")
-    return balance
+def get_balance():
+    balance = data.get("balance") # Забираем значение  из ключа balance
+    return balance # Возвращяем значение
 
-
-
-
-
-
+def set_balans(val): #Функция принимает значение баланса
+    with open ("data.json", "w", encoding=False) as f: #Открывем файл
+        json.dump(data,f,ensure_ascii=False)
 
 # print(json.dumps(data, indent=4,ensure_ascii=False))
 
@@ -27,21 +25,24 @@ def get_balans():
 
 
 get_user_balance = "Баланс"
-pop_user_balans = "Пополнить"
+pop_user_balance = "Пополнить"
 cach = "Снять"
-balance = get_balans() #Присваиваем переменной значение полученное функцикй
+new_balans = get_balance()
+# balance = get_balans() #Присваиваем переменной значение полученное функцикй
 while True:
     n = input("Введите Команду: ")
     if n == get_user_balance:
         print(f"Введ ина команда: {get_user_balance}")
-        print(f"Ваш баланс: {balance}")
+        print(f"Ваш баланс: {get_balance()}") # Вставляем значение котророе вернула функция
 
-    # if n == pop_balans:
-    #     print(f"Вы ввели команду {pop_balans}")
-    #     pop_ = int(input("Введите сумму: "))
-    #     new_balance = new_balance + pop_
-    #     print(f"Баланс: {new_balance}")
-    #     data["balance"] = new_balance # Обновляем словарь новым значением баланса
+    if n == pop_user_balance:
+        print(f"Вы ввели команду {pop_user_balance}")
+        pop_ = int(input("Введите сумму: "))
+        new_balance = new_balance + pop_
+        # print(f"Баланс: {new_balance}")
+        set_balans(new_balance) # Вызывем функцию и передаём ей новое значение
+        # print(f"Ваш баланс: {get_balans()}")
+
     #     with open("data.json", "w") as f: # Пишем новое значение баланса в json
     #         json.dump(data,f,ensure_ascii=False)
     #
