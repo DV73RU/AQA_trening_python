@@ -66,9 +66,6 @@ while True:
         pop_ = int(input("Введите сумму: "))
         set_balance(get_balance() + pop_,"пополнение",pop_)
         print(f"Ваш баланс: {get_balance()}") # Выводим баланс
-        data["history"].append({"type": "пополние", "amount": pop_})
-        with open("data.json", "w") as file:
-            json.dump(data, file)
 
 
     elif n == get_cash:
