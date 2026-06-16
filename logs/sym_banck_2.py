@@ -6,8 +6,21 @@ with open ("data.json", "r", encoding="utf-8") as f:
 
 #Функция возвращяет баланс
 def get_balance():
-    balance = data.get("balance") # Забираем значение  из ключа balance
+    balance = data.get("balance") # Забираем значение  из ключа balancei in
     return balance # Возвращяем значение
+
+def get_history():
+    pass
+    with open("data.json", "r", encoding="utf-8") as file:
+        hys = json.load(file)
+        lst = []
+        for i in hys['history']['type']:
+            print(i)
+
+    return i
+
+
+
 
 #Функция пишет баланс
 def set_balance(new_balance): #Пишет баланс в файл
@@ -21,6 +34,7 @@ get_user_balance = "Баланс"
 pop_user_balance = "Пополнить"
 get_cash = "Снять"
 exits = "Выход"
+_history = "История"
 
 
 
@@ -36,6 +50,9 @@ while True:
         pop_ = int(input("Введите сумму: "))
         set_balance(get_balance() + pop_)
         print(f"Ваш баланс: {get_balance()}") # Выводим баланс
+        data["history"].append({"type": "пополние", "amount": pop_})
+        with open("data.json", "w") as file:
+            json.dump(data, file)
 
 
     elif n == get_cash:
@@ -48,6 +65,16 @@ while True:
             # new_balance = get_balance() - in_cash # Вычистаем из существуещего файла введенню число
             set_balance(get_balance() - in_cash)
             print(f"Ваш баланс: {get_balance()}")
+            data["history"].append({"type": "снятие", "amount": in_cash})
+            with open("data.json", "w") as  file:
+                json.dump(data,file)
+
+    elif n == _history:
+        print(f"Введина команда: {_history}")
+        for i in data['history']:
+            print(f"{i['type']}: {i['amount']}")
+
+
     elif n == exits:
         print(f"Введенина команда: {exits}","До свидания!", sep="\n")
         break
