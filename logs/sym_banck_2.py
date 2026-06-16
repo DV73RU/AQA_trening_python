@@ -13,22 +13,23 @@ def get_balance():
     balance = data.get("balance") # Забираем значение  из ключа balance
     return balance # Возвращяем значение
 
-def set_balans(val): #Функция принимает значение баланса
-    with open ("data.json", "w", encoding=False) as f: #Открывем файл
-        json.dump(data,f,ensure_ascii=False)
+#Функция пишет баланс
+def set_balance(): #Пишет баланс в файл
+    balance = data.get("balance") #Читаем баланс
+    data['balance'] = new_balance # Присваиваем переменой новый баланс
+    with open("data.json","w",encoding="utf-8") as f: # Открываем файл для записи
+        json.dump(data,f,ensure_ascii=False) #Пишек в файл
 
-# print(json.dumps(data, indent=4,ensure_ascii=False))
-
-# balance = data.get("balance")
-
-# print(balans)
-
+data['balance'] = get_balance()
 
 get_user_balance = "Баланс"
 pop_user_balance = "Пополнить"
-cach = "Снять"
-new_balans = get_balance()
-# balance = get_balans() #Присваиваем переменной значение полученное функцикй
+get_cash = "Снять"
+exits = "Выход"
+
+
+
+
 while True:
     n = input("Введите Команду: ")
     if n == get_user_balance:
@@ -36,26 +37,28 @@ while True:
         print(f"Ваш баланс: {get_balance()}") # Вставляем значение котророе вернула функция
 
     if n == pop_user_balance:
-        print(f"Вы ввели команду {pop_user_balance}")
+        print(f"Вы ввели Команду: {pop_user_balance}")
         pop_ = int(input("Введите сумму: "))
-        new_balance = new_balance + pop_
-        # print(f"Баланс: {new_balance}")
-        set_balans(new_balance) # Вызывем функцию и передаём ей новое значение
-        # print(f"Ваш баланс: {get_balans()}")
+        new_balance = get_balance() + pop_
+        set_balance() # Пишем новый баланс
+        print(f"Ваш баланс: {get_balance()}") # Выводим баланс
 
-    #     with open("data.json", "w") as f: # Пишем новое значение баланса в json
-    #         json.dump(data,f,ensure_ascii=False)
-    #
-    # if n == cach:
-    #     print(f"Вы ввели команду {cach}")
-    #     in_cash = int(input("Введите сумму: "))
-    #     new_balance = new_balance - in_cash
-    #     data["balance"] = new_balance
-    #     print(f"Баланс : {new_balance}")
-    #     with open("data.json", "w") as f:
-    #         json.dump(data,f,ensure_ascii=False)
 
-        # else:
-    #     print("Коменла не найдена")
+    if n == get_cash:
+        print(f"Вы ввели команду: {get_cash}")
+        in_cash = int(input("Введите сумму: "))
+        if in_cash > get_balance(): #Усли симаемая сумма больше баланса
+            print("Не достаточно средств на балансе!")
+            print(f"Ваш баланс: {get_balance()}")
+        else:
+            new_balance = get_balance() - in_cash # Вычистаем из существуещего файла введенню число
+            set_balance() #Пишем новый баланс
+            print(f"Ваш баланс: {get_balance()}")
+    if n == exits:
+        print(f"Введенина команда: {exits}","До свидания!", sep="\n")
+        break
+
+    else:
+        print("Коменла не найдена")
 
 
