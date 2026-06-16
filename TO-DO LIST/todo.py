@@ -28,7 +28,7 @@ done_false = "[ ]"
 done_true = "[✓]"
 
 while True:
-    n = input("Введите комаеду: ")
+    n = input("Введите команду: ")
     if n == list_task:
         for i in data['tasks']:
             if i.get('done') is False:
@@ -40,5 +40,11 @@ while True:
         _id = int(input("Введите id задачи: "))
         for i in data['tasks']:
             if i.get('id') == _id:
-                print(f"{i['id']}. {done_false} {i['task']}")
+                i["done"] = True
+                with open("todo.json","w",encoding="utf-8") as file:
+                    json.dump(data,file,ensure_ascii=False, indent=4)
+
+            # else:
+            #     print("Такого id нет!")
+
 
