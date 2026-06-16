@@ -1,5 +1,18 @@
 import json
 
+def show_menu():
+    print("+-------------------------------------+")
+    print("!         МЕНЮ ДОСТУПНЫХ ОПЕРАЦИЙ     !")
+    print("+-------------------------------------+")
+    print("!  [Команда операци] Название опреции !")
+    print("!  [Баланс]  Посмотреть баланс        !")
+    print("!  [Пополнить]  Пополнение счета      !")
+    print("!  [Снять]  Снятие наличных           !")
+    print("!  [История]  История операций        !")л
+    print("!  [Выход]  Выход                     !")
+    print("+-------------------------------------+")
+
+
 #Читаме файд json
 with open ("data.json", "r", encoding="utf-8") as f:
     data = json.load(f)
@@ -21,7 +34,7 @@ def get_history():
 
 
 
-
+show_menu()
 #Функция пишет баланс
 def set_balance(new_balance,operation_type,amount): #Пишет баланс в файл
     data['balance'] = new_balance #Читаем баланс
@@ -36,6 +49,8 @@ pop_user_balance = "Пополнить"
 get_cash = "Снять"
 exits = "Выход"
 _history = "История"
+
+
 
 
 
