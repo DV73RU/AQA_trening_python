@@ -23,8 +23,9 @@ def get_history():
 
 
 #Функция пишет баланс
-def set_balance(new_balance): #Пишет баланс в файл
+def set_balance(new_balance,operation_type,amount): #Пишет баланс в файл
     data['balance'] = new_balance #Читаем баланс
+    data['history'].append({"type":operation_type,"amount":amount})
     with open("data.json","w",encoding="utf-8") as f: # Открываем файл для записи
         json.dump(data,f,ensure_ascii=False) #Пишем в файл
 
@@ -48,7 +49,7 @@ while True:
     elif n == pop_user_balance:
         print(f"Вы ввели Команду: {pop_user_balance}")
         pop_ = int(input("Введите сумму: "))
-        set_balance(get_balance() + pop_)
+        set_balance(get_balance() + pop_,"пополнение",pop_)
         print(f"Ваш баланс: {get_balance()}") # Выводим баланс
         data["history"].append({"type": "пополние", "amount": pop_})
         with open("data.json", "w") as file:
@@ -63,16 +64,20 @@ while True:
             print(f"Ваш баланс: {get_balance()}")
         else:
             # new_balance = get_balance() - in_cash # Вычистаем из существуещего файла введенню число
-            set_balance(get_balance() - in_cash)
+            set_balance(get_balance() - in_cash,"снятие",in_cash)
             print(f"Ваш баланс: {get_balance()}")
-            data["history"].append({"type": "снятие", "amount": in_cash})
-            with open("data.json", "w") as  file:
-                json.dump(data,file)
+
 
     elif n == _history:
         print(f"Введина команда: {_history}")
-        for i in data['history']:
-            print(f"{i['type']}: {i['amount']}")
+
+        if not data['history']:
+            print(f"История опреций отсутвует")
+
+        else:
+            for i in data['history']:
+                print(f"{i['type']}: {i['amount']}")
+
 
 
     elif n == exits:
