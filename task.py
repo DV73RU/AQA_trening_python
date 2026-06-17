@@ -2,6 +2,7 @@
 # from tutle_ import result
 from datetime import datetime,timedelta
 from itertools import count
+from tkinter.font import names
 
 # объявление функции
 # def draw_triangle(fill, base):
@@ -123,58 +124,12 @@ from itertools import count
 # print(get_unique(numbers))
 
 # объявление функции
-# def get_last_index(data, value):
-#     if value not in data:
-#         return "ERROR!"
-#     else:
-#         max_idx = max(idx for idx, val in enumerate(data) if val == value)
-#         return max_idx
-#
-# data = eval(input())
-# value = eval(input())
-#
-#
-#
-# print(get_last_index(data, value))
+def get_last_index(data, value):
+    pass
 
-# объявление функции
-# def find_all(target, symbol):
-#     idx_symbol = (idx for idx,val in enumerate(target))
-    # lst_idx_symbol = []
-    # for idx, val in enumerate(target):
-    #     if val == symbol:
-    #         lst_idx_symbol.append(idx)
-    # return lst_idx_symbol
-#
 # считываем данные
-# s = input()
-# char = input()
-#
+data = eval(input())
+value = eval(input())
+
 # вызываем функцию
-# print(find_all(s, char))
-
-# объявление функции
-# def merge(list1, list2):
-#     lsr = [i for i in list1 + list2]
-#     lsr.sort()
-#     return  lsr
-#
-# # считываем данные
-# numbers1 = [int(c) for c in input().split()]
-# numbers2 = [int(c) for c in input().split()]
-#
-# # вызываем функцию
-# print(merge(numbers1, numbers2))
-def quick_megre():
-    n = int(input())
-    res_lst = []
-
-    for i in range(1,n+1):
-        list1 = input()
-        numbers = [int(x) for x in list1.split()]
-        res_lst.extend(numbers)
-    res_lst.sort()
-
-    return " ".join(str(i) for i in res_lst)
-
-print(quick_megre())
+print(get_last_index(data, value))

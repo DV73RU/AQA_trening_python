@@ -1,7 +1,5 @@
 import json
 
-
-
 def show_menu():
     print("+--------------------------------------+")
     print("!         МЕНЮ ДОСТУПНЫХ ОПЕРАЦИЙ      !")
@@ -18,12 +16,10 @@ show_menu()
 with open("todo.json","r",encoding="utf-8") as file:
     data = json.load(file)
 
-# print(data)
-# print(json.dumps(data,indent=1,ensure_ascii=False))
-
 list_task = "Список"
 set_done = "Готово"
 add_task = "Добавить"
+_exit = "Выход"
 
 done_false = "[ ]"
 done_true = "[✓]"
@@ -44,17 +40,25 @@ while True:
                 i["done"] = True
                 with open("todo.json","w",encoding="utf-8") as file:
                     json.dump(data,file,ensure_ascii=False, indent=4)
+                print("Задача выполнена!")
+                break
+        else:
+            print("Нет такого id")
     elif n == add_task:
         name = str(input("Задача: "))
         # print(data['tasks'][-1])
         last_task = data['tasks'][-1] # Последняя задача
         new_id = last_task.get('id') + 1 # Новый номер id задачи
-        for i in data['tasks']:
-            data['tasks'].append({"id":new_id,"task":name, "done":False})
-            # print(data['tasks'])
+        # for i in data['tasks']:
+        data['tasks'].append({"id":new_id,"task":name, "done":False})
+        print(data['tasks'])
         with open("todo.json", "w",encoding="utf-8") as file:
             json.dump(data,file,ensure_ascii=False,indent=4)
-        print("Добавлено")
+            print("Добавлено")
+
+    elif n == _exit:
+        print("До свидания!")
+        break
 
 
 
