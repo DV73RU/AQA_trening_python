@@ -1,0 +1,14 @@
+{
+  "tasks": [
+    {"id": 1, "name": "Task 1", "duration": 0.2},
+    {"id": 2, "name": "Task 2", "duration": 0.5},
+    {"id": 3, "name": "Task 3", "duration": 0.1},
+    {"id": 4, "name": "Task 4", "duration": 0.3},
+    {"id": 5, "name": "Task 5", "duration": 0.4},
+    {"id": 6, "name": "Task 6", "duration": 0.2},
+    {"id": 7, "name": "Task 7", "duration": 0.6},
+    {"id": 8, "name": "Task 8", "duration": 0.3},
+    {"id": 9, "name": "Task 9", "duration": 0.2},
+    {"id": 10, "name": "Task 10", "duration": 0.5}
+  ]
+}
