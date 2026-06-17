@@ -1,0 +1,19 @@
+{
+    "questions": [
+        {
+            "question": "Столица Франции?",
+            "options": ["Лондон", "Париж", "Берлин"],
+            "answer": "Париж"
+        },
+        {
+            "question": "Сколько будет 2 + 2 * 2?",
+            "options": ["8", "6", "4"],
+            "answer": "6"
+        },
+        {
+            "question": "Язык программирования со змеёй?",
+            "options": ["Java", "Python", "Ruby"],
+            "answer": "Python"
+        }
+    ]
+}
