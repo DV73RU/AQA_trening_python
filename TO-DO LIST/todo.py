@@ -23,6 +23,7 @@ with open("todo.json","r",encoding="utf-8") as file:
 
 list_task = "Список"
 set_done = "Готово"
+add_task = "Добавить"
 
 done_false = "[ ]"
 done_true = "[✓]"
@@ -43,6 +44,21 @@ while True:
                 i["done"] = True
                 with open("todo.json","w",encoding="utf-8") as file:
                     json.dump(data,file,ensure_ascii=False, indent=4)
+    elif n == add_task:
+        name = str(input("Задача: "))
+        # print(data['tasks'][-1])
+        last_task = data['tasks'][-1] # Последняя задача
+        new_id = last_task.get('id') + 1 # Новый номер id задачи
+        for i in data['tasks']:
+            data['tasks'].append({"id":new_id,"task":name, "done":False})
+            # print(data['tasks'])
+        with open("todo.json", "w",encoding="utf-8") as file:
+            json.dump(data,file,ensure_ascii=False,indent=4)
+        print("Добавлено")
+
+
+
+
 
             # else:
             #     print("Такого id нет!")
