@@ -1,3 +1,4 @@
 import json
 
-with open()sds
+with open("grades.json","r",encoding="utf-8") as f:
+
