@@ -65,6 +65,7 @@ list_students = "Список"
 add_grades = "Добавить"
 _exit = "Выход"
 found_name = "Найти"
+total = "Итого"
 
 count_stud = len(data['students'])
 sow_menu()
@@ -129,6 +130,7 @@ while True:
             data['students'].append({"name":int_name,"grades":[int_grade]})
 
             write_file()
+
 
 
     else:
