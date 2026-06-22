@@ -16,3 +16,4 @@ for vl, value  in data['rates'].items():
         new_value = float(value)
         res = value * in_val
         print(f"{in_val} USD = {res} {valut}")
+
