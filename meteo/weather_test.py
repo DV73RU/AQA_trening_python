@@ -35,7 +35,7 @@ def temp_for_geo(latitude,longitude):
     except Exception as e:
         print("\n Другая ошибка (например, разбора JSON):", e)
 
-
+###
 
 response = requests.get(loc_url)
 data = response.json()
