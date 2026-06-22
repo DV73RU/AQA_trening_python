@@ -30,8 +30,6 @@ def temp_for_geo(latitude,longitude):
         cels = data["current_weather_units"]["temperature"]
         return f"Температура в {input_city}: {temp}{cels}"
 
-
-
     except requests.exceptions.RequestException as e:
         print("\n Ошибка запроса:", e)
     except Exception as e:
