@@ -1,6 +1,8 @@
 import requests
 
-url = "https://ru.wikipedia.org/api/rest_v1/page/summary/Python"
+in_q = input("Введите слово: ")
+
+url = f"https://ru.wikipedia.org/api/rest_v1/page/summary/{in_q}"
 
 headers = {
     "User-Agent": "MyPythonApp/1.0 (study project)"  # ← только латиница
