@@ -14,7 +14,6 @@ class TodoList:
 
     def info(self):
         """Метод возвращяет"""
-        status = False
         for key, val in enumerate(self.task):
             id = val["id"]
             text = val["text"]
