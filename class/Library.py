@@ -17,13 +17,18 @@ class Library:
             title = dst['title']
             author = dst['author']
             year = dst['year']
-            print(f"# {i}. {title} | {author} | {year}")
+            id = dst["id"]
+            print(f"# {id}. {title} | {author} | {year}")
 
     def find_by_author(self,author):
         """Метод поиска по автору"""
         for dst in self.books:
             if author == dst["author"]:
-                print(f"{dst}")
+                print(f"{dst['title']} | {dst['year']}")
+
+    def remove_book(self,title):
+        """Метод удаляет книгу по названию"""
+        self.books = [book for book in self.books if book["title"] != title]
 
 
 my_library = Library()
@@ -35,3 +40,5 @@ my_library.add_book("Собачье сердце","Булгаков",1925)
 my_library.info()
 
 my_library.find_by_author("Булгаков")
+my_library.remove_book("Война и Мир")
+my_library.info()
