@@ -26,6 +26,10 @@ class WeatherService():
 
     def current_weather(self):
         """Метод везарвщяет температуру"""
+
+        if self.longitude is None or self.longitude is None:
+            print("Сначало вызови geo")
+            return
         url = f"https://api.open-meteo.com/v1/forecast?"
 
         payload = {"longitude":self.longitude, "latitude":self.latitude,"current":"temperature_2m"}
