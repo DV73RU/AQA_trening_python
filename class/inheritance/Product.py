@@ -19,10 +19,10 @@ class Food(Product):
         self.expiry_date = expiry_date #Свой атрибут
 
     def info(self):
-        super().info() #Берем базовый итнфо
+        super().info() #Берем базовый инфо
 
         data_object = datetime.strptime(self.expiry_date,"%Y-%m-%d").date() #Из строки в дату
-        print(f" | Срок до: {data_object}") # Кбазовой info добавили параметр
+        print(f" | Срок до: {data_object}") # К базовой info добавили параметр
         
 
 
