@@ -41,8 +41,9 @@ class Food(Product):
 
 class Electronics(Product):
     """Класс электроника"""
-    def __init__(self,name,price,expiry_date,warranty):
-        super().__init__(name,price,expiry_date)
+
+    def __init__(self, name, price, quantity, warranty):
+        super().__init__(name, price, quantity)
         self.warranty = warranty
     def info(self):
         super().info()
