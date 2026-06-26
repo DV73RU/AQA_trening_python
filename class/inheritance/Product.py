@@ -1,4 +1,3 @@
-import datetime
 from datetime import datetime, date
 class Product:
     """Класс продукт"""
@@ -10,9 +9,7 @@ class Product:
 
     def info(self):
         """Метод класса информация о продукте"""
-
-
-        print(f"{self.name} | Цена: {self.price} | Количество {self.quantity}")
+        print(f"{self.name} | Цена: {self.price} | Количество {self.quantity}",end="")
 
 
 class Food(Product):
@@ -22,9 +19,11 @@ class Food(Product):
         self.expiry_date = expiry_date #Свой атрибут
 
     def info(self):
-        data_object = datetime.strptime(self.expiry_date,"%Y-%m-%d").date() #Из строки в дату
+        super().info() #Берем базовый итнфо
 
-        print(f"{self.name} | Цена: {self.price} | Количество {self.quantity} | Срок до: {data_object}" )
+        data_object = datetime.strptime(self.expiry_date,"%Y-%m-%d").date() #Из строки в дату
+        print(f" | Срок до: {data_object}") # Кбазовой info добавили параметр
+        
 
 
 
