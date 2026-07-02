@@ -1,4 +1,4 @@
-class Car:
+    class Car:
     count = 0 # Атрибут класса - количество
     def __init__(self,name,speed):
         self.name = name
