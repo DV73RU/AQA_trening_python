@@ -1,10 +1,12 @@
 
 m1 = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
 
-m2= []
+l1 = []
+for i in range(len(m1[0])):
+    new_lst = []
+    for j in range(len(m1)):
+        new_lst.append(m1[j][i])
+    l1.append(new_lst)
+    # for j in range(len(m1)):
 
-for i in  m1:
-    m = [x*2 for x in i]
-    m2.append(m)
-
-print(m2)
+print(l1)

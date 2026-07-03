@@ -26,6 +26,9 @@ class Matrix:
         for i in res:
             print(i)
 
+    def transpose(self):
+
+
 m1 = Matrix([[1, 2, 3], [4, 5, 6], [7, 8, 9]])
 m2 = Matrix([[9, 8, 7], [6, 5, 4], [3, 2, 1]])
 
