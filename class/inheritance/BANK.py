@@ -50,6 +50,13 @@ class Bank:
         if not found:
             print("Нет такого")
 
+    def total_balance(self): # < - Метод экземпляра класса Банк.
+        """Метод возвращает сумму всех счетов"""
+        res = 0
+        for account in self.accounts:
+            res = res + account.balance
+        print(f"Всего в банке {res}")
+
 
 
 
@@ -62,6 +69,6 @@ bank1.add_account(user2)
 # bank1.find_by_owner("Иванов")
 # bank1.find_by_owner("Петров")
 bank1.find_by_owner("Cидоров")
-
+bank1.total_balance()
 
 
