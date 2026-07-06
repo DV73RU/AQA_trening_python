@@ -1,3 +1,6 @@
+from errno import EOWNERDEAD
+
+
 class Account:
     """ Класс аккаунт банка"""
 
@@ -17,31 +20,48 @@ class Account:
         else:
             self.balance = self.balance - n
 
-    def info(self):
+    def info(self): #<- Метод экземпляра класса
         """Метод вернёт информацию об аккаунте"""
-
         print(f"{self.owner}  |   {self.balance}")
 
 
 class Bank:
     """Класс банк"""
-    accounts = []  # <- Список аккаунтов
+    def __init__(self):
+        self.accounts = []  # <- Список аккаунтов
 
-    def add_account(self,account):
+    def add_account(self,account): # <- Метод экземпляра класс Банк
         """Метод добавляет счёт в банке"""
         self.accounts.append(account)# < - Добавляем счет аккаунта в банк
 
-    def info(self):
+    def info(self): # <- Метод экземпляра класс Банк
         """Метод выводит все счёта в банке"""
-        print(self.accounts)
+        for account in self.accounts:
+            account.info()
+
+    def find_by_owner(self,name):# < - Метод экземпляра класса Банк
+        """Метод возвращает счет по Фамилии"""
+
+        found = False
+        for account in self.accounts:
+            if account.owner == name:
+                account.info()
+                found = True
+        if not found:
+            print("Нет такого")
 
 
 
-user1 = Account("Иванов",200)
-user2 = Account("Петров",500)
-bank1 = Bank()
+
+user1 = Account("Иванов",200) # Создаём экземпляр класса Account
+user2 = Account("Петров",500) # Создаём экземпляр класса Account
+bank1 = Bank() # Создаём экземпляр класс Банк
 bank1.add_account(user1)
 bank1.add_account(user2)
+# bank1.info()
+# bank1.find_by_owner("Иванов")
+# bank1.find_by_owner("Петров")
+bank1.find_by_owner("Cидоров")
 
 
 
