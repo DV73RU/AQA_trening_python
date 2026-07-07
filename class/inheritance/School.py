@@ -19,7 +19,7 @@ class Student:
 
     def info(self):
         """Метод вернёт информацию о студенте"""
-        return f"{self.name},  {self.average()}"
+        print(f"{self.name},  {self.average()}")
 
 class Teacher:
     def __init__(self,name,subject):
@@ -42,7 +42,7 @@ class Classroom:
 
         print(f"Класс : {self.name} , Учитель: {self.teacher.name}, | {self.teacher.subject}")
         for student in self.students:
-            print(f"  {student}")
+            print(f"  {student.info()}")
 
     def best_student(self):
         best = self.students[0]
@@ -57,15 +57,20 @@ class School:
         self.classrooms = []
 
     def add_classroom(self,classroom):
-        self.classrooms.append(classroom.name)
+        self.classrooms.append(classroom)
 
     def info(self):
         print(f"{self.name}")
+        for classroom in self.classrooms:
+            print(f"Класс {classroom.name}, Учитель: {classroom.teacher.name} | {classroom.teacher.subject}")
 
-
-
-    def best_students(self):
         pass
+
+    def total_students(self):
+        res = 0
+        for classroom in self.classrooms:
+            res += len(classroom.students)
+        print(f"Всего студентов: {res}")
 
 
 
@@ -84,12 +89,12 @@ teach2 = Teacher("Петрова","Информатика")
 
 class1 = Classroom("10A",teach1)
 class2 = Classroom("10B",teach2)
-class1.info()
-class2.info()
+# class1.info()
+# class2.info()
 class1.add_student(stud1)
 class1.add_student(stud2)
 
-class1.best_student()
+# class1.best_student()
 
 sh1 = School("Школа №68")
 sh1.add_classroom(class1)
