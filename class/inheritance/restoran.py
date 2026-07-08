@@ -19,21 +19,6 @@ class Restaurant:
             self.number_served = self.number_served + count
         else:
             print("Отрицательное число не доступно")
-class Users:
-    """Класс пользователи"""
-
-    def __init__(self,first_name,last_name,age):
-        self.first_name = first_name
-        self.last_name = last_name
-        self.age = age
-
-    def describe_use(self):
-        print(f"Имя: {self.first_name}")
-        print(f"Отчество: {self.last_name}")
-        print(f"Года: {self.age}")
-
-    def greet_user(self):
-        print(f"Приветствую вас {self.first_name} у нас")
 
 
 
@@ -41,19 +26,6 @@ rest = Restaurant("У Палыча","Кавказская")
 rest1 = Restaurant("Три корочки","Русская")
 rest2 = Restaurant("Cи-ляо", "Китайская")
 
-user1= Users("Сергей","Иванов",23)
-user2 =Users("Александр","Петров",20)
-user3 = Users("Си","Дзен",44)
-
-user1.describe_use()
-user2.describe_use()
-user3.describe_use()
-
-user2.greet_user()
-user3.greet_user()
-#
-# print(rest.res_name)
-# print(rest.cuisine_type)
 
 rest.describe_restaurant()
 # rest.open_restaurant()
