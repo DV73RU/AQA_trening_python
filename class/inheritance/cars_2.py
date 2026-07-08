@@ -32,24 +32,33 @@ class Car:
             print("Отрицательное приращение не доступно")
 
 
-class ElectricCar(Car):
-    """Класс электромобили"""
-    def __init__(self, make, model, year):
-        super().__init__(make,model,year)
-        self.battery_size = 75
-
-    def describe_battery(self):
-        print(f"У этого автомобиля {self.battery_size} - kWh батарея")
 
 
 class Battery:
     """Класс батарея"""
-    def __init__(self,battery_size = 75):
+    def __init__(self,battery_size = 100):
         self.battery_size = battery_size
 
     def describe_battery(self):
         print(f"У этого автомобиля батарея {self.battery_size} - kWh")
 
+    def get_range(self):
+        if self.battery_size == 75:
+            range = 260
+        elif self.battery_size == 100:
+            range = 315
+        print(f"На этом аккумуляторе проедет {range} миль")
+
+class ElectricCar(Car):
+    """Класс электромобили"""
+    def __init__(self, make, model, year):
+        super().__init__(make,model,year)
+        # self.battery_size = 75
+        self.battery = Battery()  # < -
+
+    #
+    # def describe_battery(self):
+    #     print(f"У этого автомобиля {self.battery_size} - kWh батарея")
 
 
 
@@ -59,4 +68,5 @@ my_el_car = ElectricCar("tesls", "model s", 2019)
 
 print(my_el_car.get_descriptive_name())
 
-my_el_car.describe_battery()
+my_el_car.battery.describe_battery()
+my_el_car.battery.get_range()
