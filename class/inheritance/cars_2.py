@@ -31,23 +31,32 @@ class Car:
         else:
             print("Отрицательное приращение не доступно")
 
+
+class ElectricCar(Car):
+    """Класс электромобили"""
+    def __init__(self, make, model, year):
+        super().__init__(make,model,year)
+        self.battery_size = 75
+
+    def describe_battery(self):
+        print(f"У этого автомобиля {self.battery_size} - kWh батарея")
+
+
+class Battery:
+    """Класс батарея"""
+    def __init__(self,battery_size = 75):
+        self.battery_size = battery_size
+
+    def describe_battery(self):
+        print(f"У этого автомобиля батарея {self.battery_size} - kWh")
+
+
+
+
+
 my_new_car = Car("audi","a4",2019)
-print(my_new_car.get_descriptive_name())
+my_el_car = ElectricCar("tesls", "model s", 2019)
 
-my_new_car.update_odometer(1200)
-my_new_car.read_odometer()
+print(my_el_car.get_descriptive_name())
 
-# my_new_car.odometer_reading = 0 # Прямое изменение атрибута класса (экземпляра)
-print(my_new_car.get_descriptive_name())
-my_new_car.read_odometer()
-
-my_new_car.update_odometer(1000)
-
-my_new_car.increment_odometer(20000)
-my_new_car.read_odometer()
-
-my_new_car.get_descriptive_name()
-
-
-print(my_new_car.get_descriptive_name())
-my_new_car.increment_odometer(-100)
+my_el_car.describe_battery()
