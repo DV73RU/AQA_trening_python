@@ -25,8 +25,11 @@ class Car:
             print("Вы не можете скрутить одометр")
 
     def increment_odometer(self,miles):
-        """Метод увеличения одометрна на переданное в метод приращение """
-        self.odometer_reading = self.odometer_reading + miles
+        """Метод увеличения одометра на переданное в метод приращение """
+        if self.odometer_reading >= miles:
+            self.odometer_reading = self.odometer_reading + miles
+        else:
+            print("Отрицательное приращение не доступно")
 
 my_new_car = Car("audi","a4",2019)
 print(my_new_car.get_descriptive_name())
@@ -47,3 +50,4 @@ my_new_car.get_descriptive_name()
 
 
 print(my_new_car.get_descriptive_name())
+my_new_car.increment_odometer(-100)
