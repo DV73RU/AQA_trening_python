@@ -20,6 +20,11 @@ class Restaurant:
         else:
             print("Отрицательное число не доступно")
 
+class IceCreamStand(Restaurant):
+    """Класс киоск с мороженым"""
+    def __init__(self,res_name,cuisine_type):
+        super().__init__(res_name,cuisine_type)
+
 
 
 rest = Restaurant("У Палыча","Кавказская")
