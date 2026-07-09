@@ -1,4 +1,4 @@
-from orca.orca_state import device
+
 
 
 class Device:
@@ -31,7 +31,7 @@ class Room:
     def add_device(self,device):
         """Метод добавляет устройство в комнату"""
         self.device.append(device)
-        print(f"В комнату {self.name} добавлено устройство {device.name}")
+        print(f"В комнату {self.name} добавлено устройство: {device.name}")
 
     def torn_on_all(self):
         """"Метод включает все устройства комнате"""
@@ -41,11 +41,12 @@ class Room:
         """Метод выводит информацию о комнате"""
         print(f"{self.name}")
         for dev in self.device:
-            print(f"{dev.name})
+            print(f"    {dev.name} - {dev.status}")
 
 lamp = Device("Лампа")
-gostin = Room("Гостиная")
+tv = Device("Телевизор")
+living = Room("Гостиная")
 
-gostin.add_device(lamp)
-
-gostin.info()
+living.add_device(lamp)
+living.add_device(tv)
+living.info()
