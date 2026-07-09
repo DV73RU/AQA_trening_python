@@ -21,14 +21,46 @@ class Users:
     def reset_login_attempts(self):
         self.login_attempts = 0
 
-user1 = Users("Анатолий","Иванович",23)
-user1.describe_use()
-user1.greet_user()
-print(user1.login_attempts)
 
-user1.increment_login_attempts()
-user1.increment_login_attempts()
-user1.increment_login_attempts()
-print(user1.login_attempts)
-user1.reset_login_attempts()
-print(user1.login_attempts)
+class Admin(Users):
+    def __init__(self,first_name,last_name,age):
+        super().__init__(first_name,last_name,age)
+        self.privileges = Privileges
+
+    def show_privileges(self):
+        # for priveleg in self.privileges:
+        #     print(priveleg)
+
+        print(f"Привилегии : {self.privileges}")
+
+class Privileges:
+    def __init__(self):
+        self.privileges = []
+
+    def
+
+
+
+
+
+
+
+
+
+user1 = Users("Анатолий","Иванович",23)
+admin1 = Admin("Василий","Петрович",49)
+
+admin1.show_privileges()
+admin1.describe_use()
+
+
+# user1.describe_use()
+# user1.greet_user()
+# print(user1.login_attempts)
+#
+# user1.increment_login_attempts()
+# user1.increment_login_attempts()
+# user1.increment_login_attempts()
+# print(user1.login_attempts)
+# user1.reset_login_attempts()
+# print(user1.login_attempts)
