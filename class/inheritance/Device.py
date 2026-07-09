@@ -105,3 +105,10 @@ living.info()
 living2.info()
 
 home1.info()
+
+condicioner.turn_on()
+home1.info()
+lamp.turn_on()
+home1.info()
+home1.turn_off_all()
+home1.info()
