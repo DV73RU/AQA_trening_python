@@ -24,12 +24,20 @@ class IceCreamStand(Restaurant):
     """Класс киоск с мороженым"""
     def __init__(self,res_name,cuisine_type):
         super().__init__(res_name,cuisine_type)
+        self.flavors = ["Яблочное"]
 
+
+    def get_flavors(self):
+
+        for ls in self.flavors:
+            print(ls)
 
 
 rest = Restaurant("У Палыча","Кавказская")
 rest1 = Restaurant("Три корочки","Русская")
 rest2 = Restaurant("Cи-ляо", "Китайская")
+
+ice1 = IceCreamStand("Сахар и Лёд","Мороженое")
 
 
 rest.describe_restaurant()
@@ -47,3 +55,6 @@ print(rest3.number_served)
 rest3.describe_restaurant()
 rest3.set_number_served(23)
 rest3.describe_restaurant()
+
+ice1.describe_restaurant()
+ice1.get_flavors()
