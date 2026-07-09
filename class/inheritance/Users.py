@@ -22,10 +22,11 @@ class Users:
         self.login_attempts = 0
 
 
-class Admin(Users):
-    def __init__(self,first_name,last_name,age):
-        super().__init__(first_name,last_name,age)
-        self.privileges = Privileges
+
+
+class Privileges:
+    def __init__(self):
+        self.privileges = []
 
     def show_privileges(self):
         # for priveleg in self.privileges:
@@ -33,16 +34,10 @@ class Admin(Users):
 
         print(f"Привилегии : {self.privileges}")
 
-class Privileges:
-    def __init__(self):
-        self.privileges = []
-
-    def
-
-
-
-
-
+class Admin(Users):
+    def __init__(self,first_name,last_name,age):
+        super().__init__(first_name,last_name,age)
+        self.privileges = Privileges()
 
 
 
@@ -50,7 +45,7 @@ class Privileges:
 user1 = Users("Анатолий","Иванович",23)
 admin1 = Admin("Василий","Петрович",49)
 
-admin1.show_privileges()
+admin1.privileges.show_privileges()
 admin1.describe_use()
 
 
