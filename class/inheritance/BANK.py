@@ -1,4 +1,3 @@
-from errno import EOWNERDEAD
 
 
 class Account:
