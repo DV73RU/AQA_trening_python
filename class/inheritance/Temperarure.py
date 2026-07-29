@@ -1,24 +1,33 @@
-import tempfile
-
-
 class Temperature:
-    def __init__(self,temperature: float):
-        self._temperature = temperature
+    def __init__(self,celsius):
+        self.celsius = celsius
 
 
-    @property # < - Геттер
-    def to_kel(self):
-        res = self._temperature + 273.15
-        return res
+    @property
+    def celsius(self):
+        return self._celsius
 
-    @to_kel.setter
-    def to_kel(self,value):
-        if value > 273:
-            return f"температура не может быть 273"
+
+    @celsius.setter
+    def celsius(self,value):
+        if value < -273:
+            print(f"Ошибка! Ниже абсолютного нуля!") # Передали значение атрибута экзампляра не верно
+            self._celsius = 0
         else:
-            return self._temperature
+            self._celsius = value
+
+    @property #Обращение к методу как атрибуту
+    def fahrenheit(self):
+        """Метод вернёт фарингейты"""
+        far = (self._celsius * 9/5) + 32
+        return far
+    @property
+    def kelvin(self):
+        """Метод вернёт кельвины"""
+        kel = (self._celsius + 273)
+        return kel
 
 
-
-t = Temperature(2)
-print(t.to_kel)
+t_c  = Temperature(-280)
+print(t_c.fahrenheit)
+print(t_c.kelvin)
