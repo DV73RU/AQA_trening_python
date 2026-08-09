@@ -78,47 +78,31 @@ print("____")
 class TestResult:
     def __init__(self,name,time_run):
         self.name = name # <- Имя теста, передаем при создании объекта
-        self.set_time_run(time_run)
-        # Ограничим значение time_run при создании объекта (экземпляра)
-        # if not isinstance(time_run, (int,float)): # Если передали не инт и флоат
-        #     raise TypeError(f"Не доступное значение: '{time_run}', передали не 'int' или 'float'")
-        # elif time_run < 0: # Если передали меньше 0
-        #     raise ValueError(f"Не доступное значение: '{time_run}', не должно быть меньше 0") # Выбросим ошибку
-        # else:
-        #     self.__time_run = time_run # Иначе присвоим значение атрибута экземпляра значение параметра класса
+        # self.duration = time_run # <- Параметр экземпляра
+        self.duration = time_run # <- Свойства для изменения и чтения времени выполнения теста
+
+    @property #<- Метод вернёт время теста
+    def duration(self):
+        return self.__duration
 
 
-
-
-
-
-    def get_time_run(self):
-        """Метод для получения времени выполнения теста"""
-        return self.__time_run # Вернём время выполнения теста
-
-    def set_time_run(self,time_run): # <- передадим значение времени в метод
-        """Метод для установки времени выполнения теста"""
-
-        # Ограничим значение time_run при изменении атрибута объекта (экземпляра)
-        if not isinstance(time_run, (int,float)): # Если передали не инт и флоат
-            raise TypeError(f"Не доступное значение: '{time_run}', передали не 'int' или 'float'") # Выбросим ошибку
-        elif time_run < 0: # Если передали меньше 0
-            raise ValueError(f"Не доступное значение: '{time_run}', не должно быть меньше 0") # Выбросим ошибку
+    @duration.setter # <- Установщик времени выполнения теста
+    def duration(self,time_run):
+        if isinstance(time_run, (int,float)): #<- Если int
+           self.__duration = time_run # Устанавливаем переданное значение экземпляра
         else:
-            self.__time_run = time_run # Иначе присвоим значение атрибута экземпляра значение параметра класса
-
+            raise ValueError("Не число") # <- Иначе выброси ошибку
+        if time_run > 0:
+            self.__duration = time_run
+        else:
+            raise  ValueError("Не положительное")
 
 
 test = TestResult("Логин",10)
-try:
-    test.set_time_run(-10)
-except ValueError as err:
-    print(f"Ошибка: {err}")
+test.duration = ""
+test.duration = -1
 
-print(test.get_time_run())
-print(test.__dict__)
-
-
+print(test.duration)
 
 
 
