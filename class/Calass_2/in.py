@@ -78,31 +78,33 @@ print("____")
 class TestResult:
     def __init__(self,name,time_run):
         self.name = name # <- Имя теста, передаем при создании объекта
-        # self.duration = time_run # <- Параметр экземпляра
         self.duration = time_run # <- Свойства для изменения и чтения времени выполнения теста
 
     @property #<- Метод вернёт время теста
     def duration(self):
-        return self.__duration
+        return self.__duration # <- Верни атрибут, но он приватный
 
 
     @duration.setter # <- Установщик времени выполнения теста
     def duration(self,time_run):
         if isinstance(time_run, (int,float)): #<- Если int
-           self.__duration = time_run # Устанавливаем переданное значение экземпляра
+           self.__duration = time_run # Устанавливаем переданное значение (приватное) экземпляра
         else:
             raise ValueError("Не число") # <- Иначе выброси ошибку
         if time_run > 0:
-            self.__duration = time_run
+            self.__duration = time_run  # Устанавливаем переданное значение (приватное) экземпляр
         else:
             raise  ValueError("Не положительное")
 
 
 test = TestResult("Логин",10)
-test.duration = ""
-test.duration = -1
+# test.duration = ""
+# test.duration = -1
 
 print(test.duration)
+
+# test2 = TestResult("EXIT",-10)
+test3 = TestResult("нОВ","DSDSD")
 
 
 
