@@ -96,7 +96,6 @@ class TestResult:
         else:
             raise  ValueError("Не положительное")
 
-
 test = TestResult("Логин",10)
 # test.duration = ""
 # test.duration = -1
