@@ -31,7 +31,7 @@ class List_Dog:
         [{name:"Name", age:int},{name:"Name", age:int}]
         """
         # 1. Создать локальный словарь
-        dst_dog = {"name": dog.name , "age": dog.age}
+        dst_dog = {"name": dog.suite_name , "age": dog.age}
 
         # 2. Добавляем этот новый словарь в список
 

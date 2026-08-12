@@ -40,7 +40,7 @@ class Classroom:
 
     def info(self):
 
-        print(f"Класс : {self.name} , Учитель: {self.teacher.name}, | {self.teacher.subject}")
+        print(f"Класс : {self.name} , Учитель: {self.teacher.suite_name}, | {self.teacher.subject}")
         for student in self.students:
             print(f"  {student.info()}")
 
@@ -62,7 +62,7 @@ class School:
     def info(self):
         print(f"{self.name}")
         for classroom in self.classrooms:
-            print(f"Класс {classroom.name}, Учитель: {classroom.teacher.name} | {classroom.teacher.subject}")
+            print(f"Класс {classroom.suite_name}, Учитель: {classroom.teacher.suite_name} | {classroom.teacher.subject}")
 
         pass
 

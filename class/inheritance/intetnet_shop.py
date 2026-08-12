@@ -17,7 +17,7 @@ class  Card:
 
     def add_product(self,product,n ):
         """Метод добавления в корзину"""
-        self.items.append({"name":product.name,"count": n, "price":product.price})
+        self.items.append({"name":product.suite_name, "count": n, "price":product.price})
 
     def info(self):
         """Метод класса информация о корзине"""

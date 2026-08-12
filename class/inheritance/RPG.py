@@ -18,9 +18,9 @@ class Character:
             real_damage = self.damage
         target.hp -= real_damage
         self.target = target # Кого атакуем
-        if self.name != self.target.name: # Себя нельзя атаковать
+        if self.name != self.target.suite_name: # Себя нельзя атаковать
             self.target.hp = self.target.hp - self.damage # Вычитаем из HP урон
-            print(f"{self.name} атакует -> {self.target.name} на {self.damage} урона. У {self.target.name} HP:{self.target.hp}")
+            print(f"{self.name} атакует -> {self.target.suite_name} на {self.damage} урона. У {self.target.suite_name} HP:{self.target.hp}")
         else:
             print("Себя нельзя атаковать")
 
@@ -57,9 +57,9 @@ class Mage(Character):
     def cast_spell(self,target):
         """Метод двойного удара"""
         self.target = target # Кого атакуем
-        if self.name != self.target.name: # Себя нельзя атаковать
+        if self.name != self.target.suite_name: # Себя нельзя атаковать
             self.target.hp = self.target.hp - self.damage * 2 # Вычитаем из HP урон
-            print(f"{self.name} двойная атака -> {self.target.name} на {self.damage*2} урона. У {self.target.name} HP:{self.target.hp}")
+            print(f"{self.name} двойная атака -> {self.target.suite_name} на {self.damage * 2} урона. У {self.target.suite_name} HP:{self.target.hp}")
         else:
             print("Себя нельзя атаковать")
 
@@ -71,7 +71,7 @@ class Archer(Character):
     def shoot(self,target):
         if self.arrows > 0:
             self.target.hp = self.target.hp - self.damage
-            print(f"{self.name} Стреляет - > {self.target.name} на {self.damage} урона. У {self.target.name} HP: {self.target.hp} ")
+            print(f"{self.name} Стреляет - > {self.target.suite_name} на {self.damage} урона. У {self.target.suite_name} HP: {self.target.hp} ")
         else:
             print(f"Cтрел: {self.arrows} - атаки нет")
 warrior1 = Warrior("Артур",100,50,50)

@@ -166,7 +166,7 @@ class TestSuite:
     def set_status_test(self,name,status): #Принимает название теста и новый статус
         """Метод изменяет статус """
         for test in self.list_test_case:
-            if test.name == name: # Если переданное имя теста есть в списке тесто
+            if test.suite_name == name: # Если переданное имя теста есть в списке тесто
                 test.status = status #<- Передаём новый статус тесту
 
     def get_rate(self,status): # Принимает статус тестов
@@ -204,7 +204,7 @@ class TestSuite:
         """Метод выводи отчёт о тестах"""
         print(f"В {self.name}: {len(self.list_test_case)} тест")
         for test in self.list_test_case:
-            print(f"{test.name} - {test.status}")
+            print(f"{test.suite_name} - {test.status}")
 
 
 class TestCase:

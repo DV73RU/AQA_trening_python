@@ -29,7 +29,7 @@ class Room:
     def add_device(self,device):
         """Метод добавляет устройство в комнату"""
         self.devices.append(device)
-        print(f"В комнату {self.name} добавлено устройство: {device.name}")
+        print(f"В комнату {self.name} добавлено устройство: {device.suite_name}")
 
     def turn_on_all(self):
         """"Метод включает все устройства в комнате"""
@@ -63,7 +63,7 @@ class SmartHome:
     def add_rooms(self,room):
         """Метод добавляет комнату в дом"""
         self.rooms.append(room)
-        print(f"В умный дом: '{self.name}' добавлена комната: '{room.name}'")
+        print(f"В умный дом: '{self.name}' добавлена комната: '{room.suite_name}'")
 
     def info(self):
         """Метод выводит информацию об Умном доме"""
