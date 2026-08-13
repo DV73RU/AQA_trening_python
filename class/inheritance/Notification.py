@@ -1,9 +1,9 @@
 class Notification:
-    list_notification = []
+    """Класс отправки сообщения (родитель)"""
+    list_notification = [] # Список объектов куда отправляем сообщение
 
-
-    def __init__(self,title, message):
-        self.title = title
+    def __init__(self,title, message): #Инициализатор экземпляра отправки сообщения
+        self.title = title # Атрибут
         self.message = message
         self.list_notification.append(self) #< - В список добавляем объект
 
@@ -40,12 +40,11 @@ class  PushNotification(Notification):
 
 
 email = EmailNotification("Заказ принят","Заказ №123 принят", "mail@mail.ru")
-email.send()
+
 sms = SMSNotification("Код: 1234","Не кому не сообщайте код","+70000000000")
-sms.send()
 
 push = PushNotification("Акция","ВНИМАНИЕ СКИДКА 10%", "devise_dsre23fd")
-push.send()
+
 
 for item in Notification.list_notification:
     item.send()

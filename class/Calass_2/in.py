@@ -103,7 +103,7 @@ test = TestResult("Логин",10)
 print(test.duration)
 
 # test2 = TestResult("EXIT",-10)
-# test3 = TestResult("нОВ","DSDSD")
+test3 = TestResult("нОВ","DSDSD")
 
 
 
