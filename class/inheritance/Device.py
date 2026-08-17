@@ -51,7 +51,7 @@ class Room:
         if not self.devices:
             print("    Нет устройств")
         for dev in self.devices:
-            dev.info()
+            dev.get_result()
 
 
 
@@ -71,7 +71,7 @@ class SmartHome:
         if not self.rooms:
             print(" Нет комнат")
         for ro in self.rooms:
-            ro.info()
+            ro.get_result()
 
 
     def turn_off_all(self):

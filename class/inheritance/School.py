@@ -42,14 +42,14 @@ class Classroom:
 
         print(f"Класс : {self.name} , Учитель: {self.teacher.suite_name}, | {self.teacher.subject}")
         for student in self.students:
-            print(f"  {student.info()}")
+            print(f"  {student.get_result()}")
 
     def best_student(self):
         best = self.students[0]
         for student in self.students:
             if student.average() > best.average():
                 best = student
-        print(best.info())
+        print(best.get_result())
 
 class School:
     def __init__(self,name):

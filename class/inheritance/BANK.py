@@ -36,7 +36,7 @@ class Bank:
     def info(self): # <- Метод экземпляра класс Банк
         """Метод выводит все счёта в банке"""
         for account in self.accounts:
-            account.info()
+            account.get_result()
 
     def find_by_owner(self,name):# < - Метод экземпляра класса Банк
         """Метод возвращает счет по Фамилии"""
@@ -44,7 +44,7 @@ class Bank:
         found = False
         for account in self.accounts:
             if account.owner == name:
-                account.info()
+                account.get_result()
                 found = True
         if not found:
             print("Нет такого")
