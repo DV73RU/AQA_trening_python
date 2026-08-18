@@ -8,8 +8,11 @@ class TestResult:
 
     def __init__(self, name, status, text_error):
         self.name = name
-        self.status = status
         self.text_error = text_error
+        if status in self.list_status:
+            self.status = status
+        else:
+            raise ValueError(f"Неизвестный статус: '{status}' из разрешённых: {self.list_status}")
 
 
 class ResultReporter:
@@ -88,7 +91,7 @@ def publish_results(object_reporter: object, list_results: list):
     return list_messages
 
 
-test1 = TestResult("Логин", "FAILED", "GET CODE: 403")  # Экземпляр результат теста (объект)
+test1 = TestResult("Логин", "FAILEDf", "GET CODE: 403")  # Экземпляр результат теста (объект)
 test2 = TestResult("Добавление в корзину", "PASSED", "")  # Экземпляр результат теста (объект)
 test3 = TestResult("Подписка на новости", "PASSED", "")
 
