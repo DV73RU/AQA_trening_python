@@ -29,11 +29,11 @@ from abc import ABC, abstractmethod
 class BaseEnvironment(ABC):
     @abstractmethod
     def setup(self):
-        return f"Установлены настройки окружения"
+        pass
 
     @abstractmethod
     def teardown(self):
-        return f"Возвращение в настроек в окружение в исходное состояние"
+        pass
 
 
 class WebEnvironment(BaseEnvironment):
