@@ -97,10 +97,12 @@ class HeaderCheck(BaseCheck):
         self.header = header
 
     def check(self, response_obj: GetResponse) -> bool:
-        content_type = response_obj.headers.get('Content-Type') # Получим значение заголовка
+        content_type = response_obj.headers.get('Content-Type')  # Получим значение заголовка
         if content_type is None:  # Если нет значения такого заголовка
             return False  # Верни False
         return content_type.split(";")[0].strip() == self.header
+
+
 
 
 class ResponseValidator:
