@@ -129,3 +129,5 @@ list_check = [StatusCodeCheck(200), TimeCheckValue(1.0), KeyCheck("fact"),
 
 val = ResponseValidator(checks=list_check)  # Принимает список проверок
 print(val.validate(response_data))
+
+""""""
