@@ -47,6 +47,9 @@ class BaseTest(ABC):
 
 class HeaderTest(BaseTest):
 
+    def __init__(self,header_content_tupe):
+        self.header_content_tupe = header_content_tupe
+
     def check(self, response_obj: GetResponse) -> bool:
         content_type = response_obj.headers.get('Content-Type')  # Получим значение заголовка
         if content_type is None:  # Если нет значения такого заголовка
