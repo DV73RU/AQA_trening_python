@@ -130,11 +130,27 @@ class RunAllStrategy(BaseStrategy):
 
     def execute(self, list_test: list):  # <- Принимает список тестов
         """Метод запускает тесты по стратегии"""
-        result_list = []  # Список результатов прохождения тестов
+        list_result = []
         for test in list_test:  # Возьми один тест из преданного списка тестов
             result = test.check()  # У теста выполни метод проверки с преданным ответом запроса
-            result_list.append(result)  # Запиши результат тесто в список результатов
-        return result_list  # Верни список с результатам нам не нужно возвращать результат
+            list_result.append(result)
+        return list_result
+
+
+class SingleRetryStrategy(BaseStrategy):
+    """Стратегия 2: Запускать тесты повторно c результатом "FAILED" или "Ошибка" один раз"""
+
+    # Создаем счётчик повторов равный 0
+    # Циклом возьми каждый тест, выполни у него метод
+    # Если тест вернул "FAILED" или "Ошибка" выполни именно его ещё 1 раз, если опять "FAILED" или "Ошибка" иди дальше
+    def execute(self, list_test: list):
+        list_result = []
+        for test in list_test:  # Возьми каждый тест в списке
+            result = test.check()  # Выполни метод
+            if result in ["FAILED", "Ошибка"]:  # Если в результате встретили "FAILED", "Ошибка"
+                result = test.check()  # Запустить тот же тест ещё раз
+            list_result.append(result)  # Добавь результат в список результатов
+        return list_result  # Верни список результатов
 
 
 # Запускальщик тестов
@@ -150,10 +166,12 @@ class TestRunner:
         return self.strategy.execute  # Верни результат выполнения метода у экземпляра
 
 
-list_tests = [HeaderTest(urls, 'application/json'), CodeTest(urls, 200)]
+list_tests = [HeaderTest(urls, 'application/jsons'), CodeTest(urls, 100)]
 
-strategy1 = RunAllStrategy()
-print(strategy1.execute(list_tests))
+# strategy1 = RunAllStrategy()
+strategy2 = SingleRetryStrategy()
+# print(strategy1.execute(list_tests))
+print(strategy2.execute(list_tests))
 #
 # runner1 = TestRunner(list_tests)
 # print(runner1.run())
