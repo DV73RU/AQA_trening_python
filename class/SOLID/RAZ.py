@@ -113,17 +113,7 @@ class CodeTest(BaseTest):
         return f"{response.status_code} - FAILED (Ожидалось: {self.value_code})"
 
 
-# Запускальщик тестов
-class TestRunner:
-    """Класс запуска тестов. Он абсолютно ЗАКРЫТ для изменений.
-    Ему не важно, какие тесты внутри списка, главное — у них есть метод check()
-    """
 
-    def __init__(self, strategy: object):
-        self.strategy = strategy
-
-    def run(self):
-        return self.strategy.execute # Верни результат выполнения метода у экземпляра
 
 
 class BaseStrategy(ABC):
@@ -149,6 +139,19 @@ class RunAllStrategy(BaseStrategy):
             result_list.append(result)  # Запиши результат тесто в список результатов
         return result_list  # Верни список с результатам
 
+
+
+# Запускальщик тестов
+class TestRunner:
+    """Класс запуска тестов. Он абсолютно ЗАКРЫТ для изменений.
+    Ему не важно, какие тесты внутри списка, главное — у них есть метод check()
+    """
+
+    def __init__(self, strategy: object):
+        self.strategy = strategy
+
+    def run(self):
+        return self.strategy.execute # Верни результат выполнения метода у экземпляра
 
 list_tests = [HeaderTest(urls, 'application/json'), CodeTest(urls, 200)]
 
