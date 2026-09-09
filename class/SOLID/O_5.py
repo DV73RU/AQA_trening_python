@@ -109,7 +109,7 @@ class ResponseValidator:
     """Класс валидации запроса по списку проверок"""
 
     def __init__(self, checks: list[BaseCheck]):
-        self.checks = checks
+        self.checks = checks # Список с проверками
 
     def validate(self, response_pbj: GetResponse) -> list[
         bool]:  # Метод примет объекты (в нём данные с результатами запроса), вернёт булевый список результатов

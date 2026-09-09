@@ -15,7 +15,7 @@ def show_menu():
 
 #Читаме файд json
 with open ("data.json", "r", encoding="utf-8") as f:
-    data = json.load(f)
+    data = json
 
 #Функция возвращяет баланс
 def get_balance():
