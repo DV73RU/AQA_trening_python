@@ -51,16 +51,17 @@ class HeaderTest(BaseTest):
         """Метод проверки заголовка"""
         response = self.get_headers.get(self.url)  # Вызови get у GetResponse
         if response is None:  # Если нам вернули None
-            return TestResult(self.test_name,"Ошибка","Запрос не удался")
+            return TestResult(self.test_name, "Ошибка", "Запрос не удался")
         content_type = response.headers.get("Content-Type", "")  # Забираем значение из "Content-Type"
         if content_type.split(";")[0].strip() == self.value_header:
-            return TestResult(self.test_name,"PASSED",None)
+            return TestResult(self.test_name, "PASSED", None)
         else:
-            return TestResult(self.test_name,"FAILED", f"Ожидалось: {self.value_header}, Получено: {content_type}")
+            return TestResult(self.test_name, "FAILED", f"Ожидалось: {self.value_header}, Получено: {content_type}")
 
 
 class CodeTest(BaseTest):
     """Класс проверки значения статус кода"""
+
     def __init__(self, url, value_code):
         self.test_name = "Satus Code Test"
         self.get_code = GetResponse()
@@ -106,9 +107,13 @@ class SingleRetryStrategy(BaseStrategy):
     def execute(self, list_test: list):
         list_result = []
         for test in list_test:  # Возьми каждый тест в списке
+            print(f"Первая попытка запуска теста: {test.test_name}")
             result = test.check()  # Выполни метод
+
             if result.test_status == "FAILED" or result.test_status == "Ошибка":  # Если в результате встретили "FAILED", "Ошибка"
+                print(f"Повторная попытка запуска теста: {test.test_name}")
                 result = test.check()  # Запустить тот же тест ещё раз
+
             list_result.append(result)  # Добавь результат в список результатов
         return list_result  # Верни список результатов
 
@@ -119,24 +124,29 @@ class TestRunner:
     Ему не важно, какие тесты внутри списка
     """
 
-    def __init__(self, strategy: BaseStrategy):  # Принимает стратегию проверок
+    def __init__(self, strategy: BaseStrategy, list_test: list):  # Принимает стратегию проверок
         self.strategy = strategy
-        self.list_tests = list_tests
+        self.list_test = list_test
 
     def run(self):
-        result = self.strategy.execute(self.list_tests)
+        result = self.strategy.execute(self.list_test)
         return result  # Верни результат выполнения метода у экземпляра
 
 
-header_test = HeaderTest(urls, 'application/jsons') # Проверка заголовка
-code_test = CodeTest(urls,100) # Проверка статус кода
+header_test = HeaderTest(urls, 'application/jsons')  # Проверка заголовка
+code_test = CodeTest(urls, 100)  # Проверка статус кода
 
-list_tests = [header_test,code_test]  # Список проверок
+list_tests = [header_test, code_test]  # Список проверок
 
 strategy1 = RunAllStrategy()
 strategy2 = SingleRetryStrategy()
 
-runner1 = TestRunner(strategy2)  # Запускальщик тестов принимает стратегию запуска
-runner12 = TestRunner(strategy1)
-print(runner1.run())
-print(runner12.run())
+runner1 = TestRunner(strategy2, list_tests)  # Запускальщик тестов принимает стратегию запуска
+runner12 = TestRunner(strategy1, list_tests)
+res = runner12.run()
+for data in res:
+    print(data.__dict__)
+
+res2 = runner1.run()
+for data in res2:
+    print(data.__dict__)
