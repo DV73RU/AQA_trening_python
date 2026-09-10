@@ -97,10 +97,13 @@ class StopOnFailStrategy(BaseStrategy):
             result = test.check(response)
             result_list.append(result)
             # Если тест не прошел — прерываем цикл и не гоняем остальные тесты
-            if result.test_status in ["PASSED", "Ошибка"]:
+            if result.test_status in ["FAILED", "Ошибка"]:
                 print(f"[!] Логика стратегии: выполнение прервано на тесте {result.test_name}")
                 break
         return result_list
+
+
+
 
 
 # РАСШИРЕНИЕ СИСТЕМЫ (Добавляем тесты, не меняя код выше!)

@@ -6,53 +6,14 @@ from abc import ABC, abstractmethod
 urls = "https://catfact.ninja/fact"
 
 
-# response = requests.get(url)
-# # data = response.json()
-# # json = json.dumps(data,ensure_ascii=False,indent=4)
-# # # print(json)
-# #
-# # print(response.headers)
-# # print(response.json())
-#
-# content_tupe = response.headers.get('Content-Type')
-# status_code = response.status_code
-#
-# print(content_tupe)
-# print(status_code)
+class TestResult:
+    """Класс результат теста"""
 
-
-# Функция возврата определенного заголовка ответа
-def get_value_header(url: str, header: str):  # Принимает url и значение заголовка
-    response = requests.get(url)
-    value_header = response.headers.get(header)
-    return value_header
-
-
-# Функция возврата статус кода запроса
-def get_value_status_code(url: str):
-    response = requests.get(url)
-    value_code = response.status_code
-    return value_code
-
-
-# Функция возврата всего
-
-def get_response(url: str):
-    response = requests.get(url)
-    status_code = response.status_code
-    headers = response.headers
-    date = response.json()
-    d_json = json.dumps(date, ensure_ascii=False, indent=4)
-    return d_json
-
-
-# header = get_value_header(urls, 'Content-Type')
-# print(header)
-# code = get_value_status_code(urls)
-# print(code)
-
-# otv = get_response(urls)
-# print(otv)
+    # тут только храним данные
+    def __init__(self, test_name, test_status, text_error):
+        self.test_name = test_name
+        self.test_status = test_status
+        self.text_error = text_error
 
 
 class GetResponse:
@@ -81,6 +42,7 @@ class HeaderTest(BaseTest):
     """Класс проверки значения заголовка"""
 
     def __init__(self, url, value_header):
+        self.test_name = "Header Test"
         self.get_headers = GetResponse()  # Создай экземпляр
         self.url = url
         self.value_header = value_header
@@ -89,17 +51,18 @@ class HeaderTest(BaseTest):
         """Метод проверки заголовка"""
         response = self.get_headers.get(self.url)  # Вызови get у GetResponse
         if response is None:  # Если нам вернули None
-            return "FAILED - Запрос не удался (сетевая ошибка)"
+            return TestResult(self.test_name,"Ошибка","Запрос не удался")
         content_type = response.headers.get("Content-Type", "")  # Забираем значение из "Content-Type"
         if content_type.split(";")[0].strip() == self.value_header:
-            return f"{content_type} - PASSED"
+            return TestResult(self.test_name,"PASSED",None)
         else:
-            return f"{content_type} - FAILED (Ожидалось: {self.value_header})"
+            return TestResult(self.test_name,"FAILED", f"Ожидалось: {self.value_header}, Получено: {content_type}")
 
 
 class CodeTest(BaseTest):
 
     def __init__(self, url, value_code):
+        self.test_name = "Satus Code Test"
         self.get_code = GetResponse()
         self.url = url
         self.value_code = value_code
@@ -107,10 +70,10 @@ class CodeTest(BaseTest):
     def check(self):  # Метод проверяет предаваемое значение статус кода
         response = self.get_code.get(self.url)
         if response is None:
-            return "FAILED - Запрос не удался (сетевая ошибка)"
+            return TestResult(self.test_name, "Ошибка", "Запрос не удался")  # Cосдай объект
         if response.status_code == self.value_code:
-            return f"{response.status_code} - PASSED"
-        return f"{response.status_code} - FAILED (Ожидалось: {self.value_code})"
+            return TestResult(self.test_name, "PASSED", None)
+        return TestResult(self.test_name, "FAILED", f"Ожидалось: {self.value_code}, Получено: {response}")
 
 
 class BaseStrategy(ABC):
@@ -140,14 +103,11 @@ class RunAllStrategy(BaseStrategy):
 class SingleRetryStrategy(BaseStrategy):
     """Стратегия 2: Запускать тесты повторно c результатом "FAILED" или "Ошибка" один раз"""
 
-    # Создаем счётчик повторов равный 0
-    # Циклом возьми каждый тест, выполни у него метод
-    # Если тест вернул "FAILED" или "Ошибка" выполни именно его ещё 1 раз, если опять "FAILED" или "Ошибка" иди дальше
     def execute(self, list_test: list):
         list_result = []
         for test in list_test:  # Возьми каждый тест в списке
             result = test.check()  # Выполни метод
-            if result in ["FAILED", "Ошибка"]:  # Если в результате встретили "FAILED", "Ошибка"
+            if result.test_status == "FAILED" or result.test_status == "Ошибка":  # Если в результате встретили "FAILED", "Ошибка"
                 result = test.check()  # Запустить тот же тест ещё раз
             list_result.append(result)  # Добавь результат в список результатов
         return list_result  # Верни список результатов
@@ -159,19 +119,23 @@ class TestRunner:
     Ему не важно, какие тесты внутри списка
     """
 
-    def __init__(self, strategy: object):
+    def __init__(self, strategy: BaseStrategy):  # Принимает стратегию проверок
         self.strategy = strategy
+        self.list_tests = list_tests
 
     def run(self):
-        return self.strategy.execute  # Верни результат выполнения метода у экземпляра
+        result = self.strategy.execute(self.list_tests)
+        return result  # Верни результат выполнения метода у экземпляра
 
 
 list_tests = [HeaderTest(urls, 'application/jsons'), CodeTest(urls, 100)]
 
-# strategy1 = RunAllStrategy()
+strategy1 = RunAllStrategy()
 strategy2 = SingleRetryStrategy()
-# print(strategy1.execute(list_tests))
-print(strategy2.execute(list_tests))
-#
-# runner1 = TestRunner(list_tests)
-# print(runner1.run())
+# # print(strategy1.execute(list_tests))
+# print(strategy2.execute(list_tests))
+# #
+runner1 = TestRunner(strategy2)  # Запускальщик тестов принимает стратегию запуска
+runner12 = TestRunner(strategy1)
+print(runner1.run())
+print(runner12.run())
