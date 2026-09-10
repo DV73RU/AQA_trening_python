@@ -47,7 +47,7 @@ class HeaderTest(BaseTest):
         self.url = url
         self.value_header = value_header
 
-    def check(self):  # Метод принимает проверяемое значение заголовка
+    def check(self):  # Метод проверяет заголовок
         """Метод проверки заголовка"""
         response = self.get_headers.get(self.url)  # Вызови get у GetResponse
         if response is None:  # Если нам вернули None
@@ -60,7 +60,7 @@ class HeaderTest(BaseTest):
 
 
 class CodeTest(BaseTest):
-
+    """Класс проверки значения статус кода"""
     def __init__(self, url, value_code):
         self.test_name = "Satus Code Test"
         self.get_code = GetResponse()
@@ -73,7 +73,7 @@ class CodeTest(BaseTest):
             return TestResult(self.test_name, "Ошибка", "Запрос не удался")  # Cосдай объект
         if response.status_code == self.value_code:
             return TestResult(self.test_name, "PASSED", None)
-        return TestResult(self.test_name, "FAILED", f"Ожидалось: {self.value_code}, Получено: {response}")
+        return TestResult(self.test_name, "FAILED", f"Ожидалось: {self.value_code}, Получено: {response.status_code}")
 
 
 class BaseStrategy(ABC):
@@ -128,13 +128,14 @@ class TestRunner:
         return result  # Верни результат выполнения метода у экземпляра
 
 
-list_tests = [HeaderTest(urls, 'application/jsons'), CodeTest(urls, 100)]
+header_test = HeaderTest(urls, 'application/jsons') # Проверка заголовка
+code_test = CodeTest(urls,100) # Проверка статус кода
+
+list_tests = [header_test,code_test]  # Список проверок
 
 strategy1 = RunAllStrategy()
 strategy2 = SingleRetryStrategy()
-# # print(strategy1.execute(list_tests))
-# print(strategy2.execute(list_tests))
-# #
+
 runner1 = TestRunner(strategy2)  # Запускальщик тестов принимает стратегию запуска
 runner12 = TestRunner(strategy1)
 print(runner1.run())
