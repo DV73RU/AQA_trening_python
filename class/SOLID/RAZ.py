@@ -10,10 +10,11 @@ class TestResult:
     """Класс результат теста"""
 
     # тут только храним данные
-    def __init__(self, test_name, test_status, text_error):
+    def __init__(self, test_name, test_status, text_error, error=None):
         self.test_name = test_name
         self.test_status = test_status
         self.text_error = text_error
+        self.exception = error
 
 
 class GetResponse:
@@ -26,7 +27,7 @@ class GetResponse:
             return response
         except requests.exceptions.RequestException as e:
             print(f"Ошибка при запросе: {e}")  # Если не достучались по URL
-            return None
+            raise
 
 
 class BaseTest(ABC):
@@ -49,9 +50,11 @@ class HeaderTest(BaseTest):
 
     def check(self):  # Метод проверяет заголовок
         """Метод проверки заголовка"""
-        response = self.get_headers.get(self.url)  # Вызови get у GetResponse
-        if response is None:  # Если нам вернули None
-            return TestResult(self.test_name, "Ошибка", "Запрос не удался")
+        try:
+            response = self.get_headers.get(self.url)  # Вызови get у GetResponse
+        except requests.exceptions.RequestException as error:
+            return TestResult(self.test_name, "Ошибка", str(error), error)
+
         content_type = response.headers.get("Content-Type", "")  # Забираем значение из "Content-Type"
         if content_type.split(";")[0].strip() == self.value_header:
             return TestResult(self.test_name, "PASSED", None)
@@ -63,15 +66,17 @@ class CodeTest(BaseTest):
     """Класс проверки значения статус кода"""
 
     def __init__(self, url, value_code):
-        self.test_name = "Satus Code Test"
+        self.test_name = "Status Code Test"
         self.get_code = GetResponse()
         self.url = url
         self.value_code = value_code
 
     def check(self):  # Метод проверяет предаваемое значение статус кода
-        response = self.get_code.get(self.url)
-        if response is None:
-            return TestResult(self.test_name, "Ошибка", "Запрос не удался")  # Cосдай объект
+        try:
+            response = self.get_code.get(self.url)
+        except requests.exceptions.RequestException as error:
+            return TestResult(self.test_name, "Ошибка", str(error), error)
+
         if response.status_code == self.value_code:
             return TestResult(self.test_name, "PASSED", None)
         return TestResult(self.test_name, "FAILED", f"Ожидалось: {self.value_code}, Получено: {response.status_code}")
@@ -118,6 +123,40 @@ class SingleRetryStrategy(BaseStrategy):
         return list_result  # Верни список результатов
 
 
+class ThreeRetryStrategy(BaseStrategy):
+    """Стратегия 3: Запустить тесты повторно 3 раза с результатом "FAILED" или "Ошибка" """
+
+    def execute(self, list_test: list):
+        list_result = []
+        for test in list_test:  # Возьми каждый тест в списке
+            result = None
+            for att in range(1, 5):
+                print(f"Попытка [{att}] запуска теста: {test.test_name}")
+                result = test.check()
+                if result.test_status not in ["FAILED", "Ошибка"]:
+                    break
+
+            list_result.append(result)  # Добавь результат в список результатов
+        return list_result  # Верни список результатов
+
+
+class ExceptionTypeRetryStrategy(BaseStrategy):
+    """Стратегия 4: до двух повторов только при таймауте"""
+
+    def execute(self, list_test: list):
+        list_result = []
+        for test in list_test:  # Возьми каждый тест в списке
+            result = None
+            for att in range(1, 4):
+                print(f"Попытка [{att}] запуска теста: {test.test_name}")
+                result = test.check()
+                if not isinstance(result.exception, requests.exceptions.Timeout):
+                    break
+
+            list_result.append(result)  # Добавь результат в список результатов
+        return list_result  # Верни список результатов
+
+
 # Запускальщик тестов
 class TestRunner:
     """Класс запуска тестов. Он абсолютно ЗАКРЫТ для изменений.
@@ -140,13 +179,10 @@ list_tests = [header_test, code_test]  # Список проверок
 
 strategy1 = RunAllStrategy()
 strategy2 = SingleRetryStrategy()
+strategy3 = ThreeRetryStrategy()
 
-runner1 = TestRunner(strategy2, list_tests)  # Запускальщик тестов принимает стратегию запуска
-runner12 = TestRunner(strategy1, list_tests)
+# runner1 = TestRunner(strategy2, list_tests)  # Запускальщик тестов принимает стратегию запуска
+runner12 = TestRunner(strategy3, list_tests)
 res = runner12.run()
 for data in res:
-    print(data.__dict__)
-
-res2 = runner1.run()
-for data in res2:
     print(data.__dict__)
