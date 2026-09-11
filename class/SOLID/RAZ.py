@@ -23,7 +23,7 @@ class GetResponse:
     @staticmethod
     def get(url):
         try:
-            response = requests.get(url)
+            response = requests.get(url,timeout=5)
             return response
         except requests.exceptions.RequestException as e:
             print(f"Ошибка при запросе: {e}")  # Если не достучались по URL
@@ -172,17 +172,19 @@ class TestRunner:
         return result  # Верни результат выполнения метода у экземпляра
 
 
-header_test = HeaderTest(urls, 'application/jsons')  # Проверка заголовка
-code_test = CodeTest(urls, 100)  # Проверка статус кода
+header_test = HeaderTest(urls, 'application/json')  # Проверка заголовка
+code_test = CodeTest(urls, 200)  # Проверка статус кода
 
 list_tests = [header_test, code_test]  # Список проверок
 
 strategy1 = RunAllStrategy()
 strategy2 = SingleRetryStrategy()
 strategy3 = ThreeRetryStrategy()
+strategy4  = ExceptionTypeRetryStrategy()
+
 
 # runner1 = TestRunner(strategy2, list_tests)  # Запускальщик тестов принимает стратегию запуска
-runner12 = TestRunner(strategy3, list_tests)
+runner12 = TestRunner(strategy4, list_tests)
 res = runner12.run()
 for data in res:
     print(data.__dict__)
