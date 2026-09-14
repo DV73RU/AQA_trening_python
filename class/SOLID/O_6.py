@@ -23,7 +23,7 @@ class GetResponse:
     @staticmethod
     def get(url):
         try:
-            response = requests.get(url,timeout=5)
+            response = requests.get(url, timeout=5)
             return response
         except requests.exceptions.RequestException as e:
             print(f"Ошибка при запросе: {e}")  # Если не достучались по URL
@@ -80,6 +80,22 @@ class CodeTest(BaseTest):
         if response.status_code == self.value_code:
             return TestResult(self.test_name, "PASSED", None)
         return TestResult(self.test_name, "FAILED", f"Ожидалось: {self.value_code}, Получено: {response.status_code}")
+
+
+class TemporaryFailureTest(BaseTest):
+    """Класс учебный тест"""
+
+    def __init__(self, url):
+        self.test_name = "Учебный тест"
+        self.time = GetResponse()
+        self.url = url
+        self.count = 0
+
+    def check(self):
+        self.count = self.count + 1
+        if self.count == 1:
+            return TestResult(self.test_name, "Ошибка", "Учебный тест", requests.Timeout())
+        return TestResult(self.test_name, "PASSED", None, error=None)
 
 
 class BaseStrategy(ABC):
@@ -175,16 +191,24 @@ class TestRunner:
 header_test = HeaderTest(urls, 'application/json')  # Проверка заголовка
 code_test = CodeTest(urls, 200)  # Проверка статус кода
 
+temporary_test = TemporaryFailureTest(urls)
+
+list_tests2 = [temporary_test]
+
 list_tests = [header_test, code_test]  # Список проверок
 
 strategy1 = RunAllStrategy()
 strategy2 = SingleRetryStrategy()
 strategy3 = ThreeRetryStrategy()
-strategy4  = ExceptionTypeRetryStrategy()
-
+strategy4 = ExceptionTypeRetryStrategy()
 
 # runner1 = TestRunner(strategy2, list_tests)  # Запускальщик тестов принимает стратегию запуска
-runner12 = TestRunner(strategy4, list_tests)
-res = runner12.run()
-for data in res:
+# runner12 = TestRunner(strategy4, list_tests)
+# res = runner12.run()
+# for data in res:
+#     print(data.__dict__)
+
+runner14 = TestRunner(strategy4,list_tests2)
+res2 = runner14.run()
+for data in res2:
     print(data.__dict__)
