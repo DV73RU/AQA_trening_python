@@ -51,13 +51,32 @@ class SizeSpecification(Specification):
 
 
 class BetterFilter(Filter):
-    def filter(self, items, spec):
-        for item in items:
-            if spec.is_specification(item):
+    def filter(self, items, spec): # Передаём элементы фильтрации и спецификацию
+        for item in items: #Возьми каждый элемент в переданных элементах
+            if spec.is_specification(item): #  Если выполненный метод у спецификации True
                 yield item
 
 
-apple = Product("Яблоко", Size.MEDIUM, Color.RED)
+apple = Product("Яблоко", Size.MEDIUM, Color.GREEN)
+
+pear  = Product("Груша",Size.SMALL,Color.GREEN)
+
+#Создание спецификации цветов
+
+green = ColorSpecification(Color.GREEN)
+red = ColorSpecification(Color.RED)
+blue = ColorSpecification(Color.BLUE)
+
+# Создание спецификации размеров
+smol = SizeSpecification(Size.SMALL)
+medium = SizeSpecification(Size.MEDIUM)
+big = SizeSpecification(Size.BIG)
+
+br_filter = BetterFilter()
 
 
-print(apple.size)
+products = [apple,pear]
+
+print(f"Зелёные продукты: ")
+for pr in br_filter.filter(products,green):
+    print(f" - {pr.name}")
