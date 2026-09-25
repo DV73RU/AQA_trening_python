@@ -33,6 +33,8 @@ class Test:
     def test_name(self):
         return self.__test_name
 
+
+
     @test_name.setter
     def test_name(self, new_test_name):
         self.__test_name = new_test_name  # Пока нет проверок
