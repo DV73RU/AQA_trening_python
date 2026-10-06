@@ -23,11 +23,11 @@ class Test:
     def status(self, input_status):
         if not isinstance(input_status, str):  # Если тип строка и есть совпадение в кортеже
             raise TypeError(f"Не верный тип статус: {input_status} теста {self.test_name}")
-        if input_status not in ("FAILED", "PASSED"):
+        if input_status not in ("FAILED", "PASSED"): # Если передали не допустимый статус
 
             raise ValueError(f"Не допустимый статус теста {self.test_name}: {input_status}")
-        else:
-            self.__status = input_status
+
+        self.__status = input_status
 
     @property
     def test_name(self):
