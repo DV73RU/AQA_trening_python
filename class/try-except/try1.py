@@ -1,4 +1,3 @@
-from calendar import error
 
 
 class InvalidStatusError(Exception):
