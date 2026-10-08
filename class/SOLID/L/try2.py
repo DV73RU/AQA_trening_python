@@ -1,18 +1,23 @@
 from enum import Enum
 
 
-class Color:
-    red = (127, 0, 0)
-    green = (127, 127, 255)
-    blue = (0, 255, 0)
+class TestStatus(Enum):
+    PASSED = "Passed"
+    FAILED = "Failed"
+    SKIPPED = "Skipped"
+
+status = TestStatus
+
+list_test_result = [TestStatus.SKIPPED,TestStatus.PASSED,TestStatus.PASSED,TestStatus.FAILED,TestStatus.PASSED] # Вернулся список результатов прогона
+
+print(list_test_result) # Проверю что в списке члены Enum
+
+for test_res in  list_test_result:
+    if test_res == TestStatus.FAILED:
+        print("Тест упал")
+    elif test_res == TestStatus.PASSED:
+        print("Тест пройден")
+    elif test_res == TestStatus.SKIPPED:
+        print("Тест пропущен")
 
 
-rd = Color.red
-# print(Color.__dict__)
-
-
-Color.red = (123,3,3)
-print(Color.red)
-print(rd)
-
-print(Color.__dict__)
