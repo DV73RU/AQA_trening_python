@@ -14,9 +14,9 @@ class TestStatus(Enum):
 class TestResult:
     name: str
     status: TestStatus = TestStatus.PENDING
-    duration: float = field(default=0.0, repr=False)  # По умолчанию 0.0, но не отображается в __repr__&#xA;
-    errors: list[str] = field(default_factory=list,repr=False)  # По умолчанию пустой список, но не отображается в __repr__&#xA;
-    retries: int = field(default=0, init=False)  # По умолчанию 0, но не передается в __init__&#xA;
+    duration: float = field(default=0.0, repr=False)  # По умолчанию 0.0, но не отображается в __repr__;
+    errors: list[str] = field(default_factory=list,repr=False)  # По умолчанию пустой список, но не отображается в __repr__;
+    retries: int = field(default=0, init=False)  # По умолчанию 0, но не передается в __init__;
     # success: bool = field(default=False, init=False)
 
 

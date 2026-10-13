@@ -10,7 +10,7 @@ class TestStatus(Enum):
     PENDING = "Pending"
 
 
-@dataclass()
+@dataclass
 class TestConfig:
     """Класс настройки авто теста"""
     name: str
