@@ -18,6 +18,8 @@ class TestConfig:
         self.timeout = timeout  # Время выполнения
         self.status: TestStatus = TestStatus.PENDING  # Значение статуса по умолчанию
 
+    ## Добавить __post_init_? Не знаю как при создании экземпляра проверять status
+
     def __setattr__(self, key, value):  # Дандер метод изменения атрибутов экземпляра
 
         if key == "status":  # Если изменяемый атрибут статус
