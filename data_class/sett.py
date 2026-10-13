@@ -1,4 +1,5 @@
 from enum import Enum
+from dataclasses import dataclass
 
 
 class TestStatus(Enum):
@@ -9,16 +10,14 @@ class TestStatus(Enum):
     PENDING = "Pending"
 
 
+@dataclass()
 class TestConfig:
     """Класс настройки авто теста"""
+    name: str
+    timeout: int
+    status: TestStatus = TestStatus.PENDING  # По умолчанию PENDING
 
-    def __init__(self, name: str, timeout: int, status: TestStatus):
-
-        self.name = name  # Имя теста
-        self.timeout = timeout  # Время выполнения
-        self.status: TestStatus = TestStatus.PENDING  # Значение статуса по умолчанию
-
-    ## Добавить __post_init_? Не знаю как при создании экземпляра проверять status
+    # __init__ отсутствует он вшит в декораторе dataclass
 
     def __setattr__(self, key, value):  # Дандер метод изменения атрибутов экземпляра
 
@@ -32,15 +31,16 @@ class TestConfig:
             if value <= 0:
                 raise ValueError(f"Не допустимое значение {value}")
 
-        self.__dict__[key] = value  # Устанавливаем значение атрибуту
+        super().__setattr__(key, value) # - > Запись в значения атрибутов
 
 
-config1 = TestConfig("Login", 23, "PASSED")
-print(config1.__dict__)  # Смотрим что в экземпляре
+config = TestConfig("Login", 5)
 
-# Меняем значение атрибутов
-config1.name = "Logout"
-config1.timeout = 2
-config1.status = TestStatus.PASSED
-config1.status = TestStatus.SKIPPED
-print(config1.__dict__)  # Смотрим что в экземпляре
+print(config)
+
+config.timeout = 15
+config.status = TestStatus.PASSED
+
+print(config)
+
+config.timeout = -2  # ValueError
