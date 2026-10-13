@@ -19,6 +19,7 @@ class TestResult:
     retries: int = field(default=0, init=False)  # По умолчанию 0, но не передается в __init__&#xA;
     # success: bool = field(default=False, init=False)
 
+
     def __post_init__(self):  # После инита
         if not isinstance(self.status, TestStatus):  # Проверка типа status на TestStatus&#xA;
             raise TypeError(f"Не верный тип статуса: {self.status}")
