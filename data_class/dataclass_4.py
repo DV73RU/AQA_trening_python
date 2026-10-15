@@ -1,6 +1,7 @@
 from dataclasses import dataclass, field
 
 
+
 @dataclass(order=True)
 class TestResult:
     duration :float
@@ -12,5 +13,9 @@ results = [
     TestResult(0.8, "Logout", "PASSED"),
     TestResult(1.3, "Payment", "FAILED"),
 ]
+# Сортировка по возрастанию поля duration
+sorted_results = sorted(results, key=lambda test: test.duration)
 
-print(sorted(results))
+# Проверяем результат
+for test in sorted_results:
+    print(f"{test.duration} - {test.name}")
