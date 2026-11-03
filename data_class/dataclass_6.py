@@ -119,7 +119,7 @@ class ReportManager:
 
         pass_rate = (res['passed'] / res['total']) * 100
 
-        return round(pass_rate,2)
+        return raund(pass_rate,2)
 
 
 report = TestReport("API Regression")
