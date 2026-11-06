@@ -72,7 +72,7 @@ class EmailSender(BaseSender):
         print(f"[Email к {self.email}]: {message}")
 
 
-class TestRunner:
+class TestRunners:
     def __init__(self, tests: list[BaseTest], sender: BaseSender):  # Передаём список тестов для запуска и отправителя
         self.tests = tests
         self.sender = sender
@@ -111,13 +111,14 @@ class TestRunner:
 
         return result
 
-    def run_all(self):
+    def run_all_test(self):
         # 1. Запуск каждого теста через метод run TestRunner в списке
         # 2. Запись в список результатов
-        res_list = []
+        res_list_test = []
         for test in self.tests:  # Пройдёмся по списку тестов переданного в экземпляр ранера
             try:
-                result = self.run(test) # Тут нужно запустить run у экземпляра класса TestRuner (не путать run с методом у теста)
+                run = self.run(test)
+                result = run  # Тут нужно запустить run у экземпляра класса TestRuner (не путать run с методом у теста)
             except ValueError as err: # Перехвати ошибку не венного значения статуса
                 print(f"{err}") # Выведи сообщение об перехваченной ошибки
                 test.status = "FAILED"
@@ -133,8 +134,8 @@ class TestRunner:
                 test.status = "FAILED"
                 self.notify_failed(test)
 
-            res_list.append(result) # Добавь значение результатов в список результатов
-        return res_list
+            res_list_test.append(result) # Добавь значение результатов в список результатов
+        return res_list_test
 
     def get_statistics(self,result:list) -> dict[str,int]: #Примет список результатов теста (а где их взять?)
         # 1. Выполнить метод запуска который вернёт нам этот список
@@ -167,7 +168,7 @@ list_tests = [api, ui, db]
 
 
 
-run1 = TestRunner(list_tests, tel_send)
+run1 = TestRunners(list_tests, tel_send)
 # print(run1.run(api))
 # res = run1.run_all()
 
@@ -178,4 +179,4 @@ run1 = TestRunner(list_tests, tel_send)
 # print(run1.run(ui))
 # print(run1.run(db))
 
-print(run1.run_all())
+print(run1.run_all_test())
